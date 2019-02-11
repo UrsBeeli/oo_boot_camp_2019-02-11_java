@@ -6,6 +6,7 @@
 package unit;
 
 import org.junit.jupiter.api.Test;
+import rectangle.Rectangle;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,6 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class RectangleTest {
 
     @Test void area() {
-        assertEquals(24.0, new Rectangle(4.0, 6.0));
+        assertEquals(24.0, new Rectangle(4.0, 6.0).area());
+    }
+
+    @Test() void notNegative(){
+        new Rectangle(-1, 0);
     }
 }
