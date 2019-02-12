@@ -1,23 +1,15 @@
 package measures;
 
-public enum Unit {
-  TEASPOON(0, null),
-  TABLESPOON(3, TEASPOON),
-  OUNCE(2, TABLESPOON),
-  CUP(8, OUNCE),
-  PINT(2, CUP),
-  QUART(2, PINT),
-  GALLON(4, QUART);
-
-  private Unit(int amountInLowerUnit, Unit lowerUnit) {
+public abstract class AbstractUnit<T extends AbstractUnit> {
+  AbstractUnit(int amountInLowerUnit, AbstractUnit lowerUnit) {
     this.amountInLowerUnit = amountInLowerUnit;
     this.lowerUnit = lowerUnit;
   }
 
   private final int amountInLowerUnit;
-  private final Unit lowerUnit;
+  private final AbstractUnit lowerUnit;
 
-  private double convertToBaseunit(double value) {
+  double convertToBaseunit(double value) {
     if (lowerUnit == null) {
       return value;
     }
@@ -31,7 +23,9 @@ public enum Unit {
     return lowerUnit.convertFromBaseunit(value / amountInLowerUnit);
   }
 
-  public double convertedAmount(double sourceAmount, Unit sourceUnit) {
+  public double convertedAmount(double sourceAmount, T sourceUnit) {
     return this.convertFromBaseunit(sourceUnit.convertToBaseunit(sourceAmount));
   }
+
+  protected abstract T getBaseUnit();
 }
