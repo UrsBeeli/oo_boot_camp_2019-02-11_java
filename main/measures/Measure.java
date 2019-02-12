@@ -4,28 +4,26 @@ package measures;
 import java.util.Objects;
 
 public class Measure {
-  private final double value;
+  private final double amount;
   private final Unit unit;
 
-  public Measure(final double value, final Unit unit) {
+  public Measure(final double amount, final Unit unit) {
     Objects.requireNonNull(unit, "Unit must not be null");
 
-    this.value = value;
+    this.amount = amount;
     this.unit = unit;
   }
 
   public Measure convertTo(Unit targetUnit) {
-    return new Measure(unit.convert(this.value, targetUnit), targetUnit);
+    return new Measure(targetUnit.convertedAmount(this.amount, this.unit), targetUnit);
   }
 
-  public Measure add(final Measure other, final Unit targetUnit) {
-    double teaSpoons = this.unit.convert(this.value, Unit.TEASPOON) + other.unit.convert(other.value, Unit.TEASPOON);
-    return new Measure(Unit.TEASPOON.convert(teaSpoons, targetUnit), targetUnit);
+  public Measure add(final Measure other) {
+    return new Measure(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
-  public Measure subtract(final Measure other, final Unit targetUnit) {
-    double teaSpoons = this.unit.convert(this.value, Unit.TEASPOON) - other.unit.convert(other.value, Unit.TEASPOON);
-    return new Measure(Unit.TEASPOON.convert(teaSpoons, targetUnit), targetUnit);
+  public Measure subtract(final Measure other) {
+    return new Measure(this.amount - this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
   @Override
@@ -37,16 +35,16 @@ public class Measure {
       return false;
     }
     final Measure that = (Measure) other;
-    return this.value == that.unit.convert(that.value, this.unit);
+    return this.amount == this.unit.convertedAmount(that.amount, that.unit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(this.unit.convert(this.value, Unit.TEASPOON));
+    return Objects.hash(Unit.TEASPOON.convertedAmount(this.amount, this.unit));
   }
 
   public String toString() {
-    return String.format("%f %s", value, unit);
+    return String.format("%f %s", amount, unit);
   }
 
 }

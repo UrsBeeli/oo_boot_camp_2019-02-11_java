@@ -73,14 +73,13 @@ class MeasureTest {
     assertEquals(1, hashSet.size());
   }
 
-
   @Test
   void add() {
-    assertEquals(new Measure(1, TABLESPOON), new Measure(1, TEASPOON).add(new Measure(2, TEASPOON), TABLESPOON));
+    assertEquals(new Measure(2, TABLESPOON), new Measure(1, TABLESPOON).add(new Measure(3, TEASPOON)));
   }
 
   @Test
   void subtract() {
-    assertEquals(new Measure(192, TABLESPOON), new Measure(1, GALLON).subtract(new Measure(2, PINT), TABLESPOON));
+    assertEquals(new Measure(3, QUART), new Measure(4, QUART).subtract(new Measure(2, PINT)));
   }
 }

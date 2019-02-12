@@ -31,7 +31,7 @@ public enum Unit {
     return lowerUnit.convertFromBaseunit(value / amountInLowerUnit);
   }
 
-  public double convert(double value, Unit targetUnit) {
-    return targetUnit.convertFromBaseunit(convertToBaseunit(value));
+  public double convertedAmount(double sourceAmount, Unit sourceUnit) {
+    return this.convertFromBaseunit(sourceUnit.convertToBaseunit(sourceAmount));
   }
 }
