@@ -1,5 +1,8 @@
 package unit;
 
+import measures.Area;
+import measures.Length;
+import measures.MultiplyableQuantity;
 import measures.Quantity;
 import org.junit.jupiter.api.Test;
 
@@ -68,16 +71,19 @@ class TemperatureMeasureTest {
 
   @Test
   void add() {
-    assertEquals(FAHRENHEIT.s(10), FAHRENHEIT.s(-40).add(CELSIUS.s(10)));
+    assertThrows(UnsupportedOperationException.class, () -> FAHRENHEIT.s(-40).add(CELSIUS.s(10)));
   }
 
   @Test
   void subtract() {
-    assertEquals(FAHRENHEIT.s(162), FAHRENHEIT.s(212).subtract(CELSIUS.s(10)));
+    assertThrows(UnsupportedOperationException.class, () -> FAHRENHEIT.s(212).subtract(CELSIUS.s(10)));
   }
 
-//  @Test
-//  void mixedAddition() {
-//    assertThrows(IllegalArgumentException.class, () -> new Quantity(451, FAHRENHEIT).add(new Quantity(9, INCH)));  // caught at compile time
-//  }
+  @Test
+  void mixedAddition() {
+    assertThrows(IllegalArgumentException.class, () -> {
+      final Quantity inches = INCH.s(9);
+      FAHRENHEIT.s(451).add(inches);
+    });
+  }
 }

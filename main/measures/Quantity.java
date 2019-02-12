@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Quantity<T extends BaseUnit> {
   final double amount;
-  final BaseUnit unit;
+  final T unit;
 
-  protected Quantity(final double amount, final BaseUnit unit) {
+  protected Quantity(final double amount, final T unit) {
     Objects.requireNonNull(unit, "Unit must not be null");
 
     this.amount = amount;
@@ -25,12 +25,18 @@ public class Quantity<T extends BaseUnit> {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot add different unit types");
     }
+    if (!unit.supportsArithmatic()) {
+      throw new UnsupportedOperationException("Cannot add these units");
+    }
     return new Quantity<T>(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
   public Quantity<T> subtract(final Quantity<T> other) {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot subtract different unit types");
+    }
+    if (!unit.supportsArithmatic()) {
+      throw new UnsupportedOperationException("Cannot subtract these units");
     }
     return new Quantity(this.amount - this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }

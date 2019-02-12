@@ -12,6 +12,9 @@ public class MultiplyableQuantity<T extends BaseUnit, S extends BaseUnit, R exte
   private R resultBaseUnit;
 
   public Quantity<R> multiply(final Quantity<S> other) {
+    if (!unit.supportsArithmatic() || !other.unit.supportsArithmatic()) {
+      throw new UnsupportedOperationException("Cannot multiply these units");
+    }
     final double ourAmount = this.unit.convertToBaseunit(this.amount);
     final double theirAmount = other.unit.convertToBaseunit(other.amount);
     return new Quantity<R>(ourAmount * theirAmount, resultBaseUnit);

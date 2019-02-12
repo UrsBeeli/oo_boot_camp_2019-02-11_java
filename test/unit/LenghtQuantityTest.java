@@ -1,7 +1,7 @@
 package unit;
 
-import measures.Area;
 import measures.Quantity;
+import measures.Volume;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -9,17 +9,17 @@ import java.util.HashSet;
 
 import static measures.Area.SQUARE_FOOT;
 import static measures.Length.CHAIN;
-import static measures.Volume.CUP;
 import static measures.Length.FOOT;
 import static measures.Length.FURLONG;
 import static measures.Length.INCH;
 import static measures.Length.MILE;
 import static measures.Length.YARD;
+import static measures.Volume.CUP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class DistanceMeasureTest {
+class LenghtQuantityTest {
 
   @Test
   void compare() {
@@ -83,8 +83,11 @@ class DistanceMeasureTest {
     assertEquals(SQUARE_FOOT.s(20), FOOT.s(4).multiply(FOOT.s(5)).convertTo(SQUARE_FOOT));
   }
 
-//  @Test
-//  void mixing() {
-//    assertThrows(IllegalArgumentException.class, () -> FOOT.s(2).add(CUP.s(3))); // caught at compile time
-//  }
+  @Test
+  void mixing() {
+    assertThrows(IllegalArgumentException.class, () -> {
+      final Quantity other = CUP.s(3);
+      FOOT.s(2).add(other);
+    });
+  }
 }
