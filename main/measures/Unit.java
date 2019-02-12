@@ -1,38 +1,39 @@
 package measures;
 
-public enum Unit {
-  TEA_SPOON(1),
-  TABLE_SPOON(Constants.TEA_SPOONS_PER_TABLE_SPOON),
-  OUNCE(Constants.TEA_SPOONS_PER_OUNCE),
-  CUP(Constants.TEA_SPOONS_PER_CUP),
-  PINT(Constants.TEA_SPOONS_PER_PINT),
-  QUART(Constants.TEA_SPOONS_PER_QUART),
-  GALLON(Constants.TEA_SPOONS_PER_GALLON);
+public final class Unit {
+  public static final Unit TEASPOON = new Unit(0, null);
+  public static final Unit TABLESPOON = new Unit(3, TEASPOON);
+  public static final Unit OUNCE = new Unit(2, TABLESPOON);
+  public static final Unit CUP = new Unit(8, OUNCE);
+  public static final Unit PINT = new Unit(2, CUP);
+  public static final Unit QUART = new Unit(2, PINT);
+  public static final Unit GALLON = new Unit(4, QUART);
 
-  Unit(int amountOfTeaspoons) {
-    this.amountOfTeaspoons = amountOfTeaspoons;
+  private Unit(int amountInLowerUnit, Unit lowerUnit) {
+    this.amountInLowerUnit = amountInLowerUnit;
+    this.lowerUnit = lowerUnit;
   }
 
-  private int amountOfTeaspoons;
+  private final int amountInLowerUnit;
+  private final Unit lowerUnit;
 
-  private static double convertToTeaSpoons(double value, Unit sourceUnit) {
-    return value * sourceUnit.amountOfTeaspoons;
+  private double convertToTeaSpoons(double value) {
+    if (lowerUnit == null) {
+      return value;
+    } else {
+      return lowerUnit.convertToTeaSpoons(value * amountInLowerUnit);
+    }
   }
 
-  private static double convertFromTeaSpoons(double value, Unit targetUnit) {
-    return value / targetUnit.amountOfTeaspoons;
+  private double convertFromTeaSpoons(double value, Unit targetUnit) {
+    if (targetUnit.lowerUnit == null) {
+      return value;
+    } else {
+      return targetUnit.convertFromTeaSpoons(value / targetUnit.amountInLowerUnit, targetUnit.lowerUnit);
+    }
   }
 
-  public static double convert(double value, Unit sourceUnit, Unit targetUnit) {
-    return convertFromTeaSpoons(convertToTeaSpoons(value, sourceUnit), targetUnit);
-  }
-
-  private class Constants {
-    static final int TEA_SPOONS_PER_TABLE_SPOON = 3;
-    static final int TEA_SPOONS_PER_OUNCE = 2 * TEA_SPOONS_PER_TABLE_SPOON;
-    static final int TEA_SPOONS_PER_CUP = 8 * TEA_SPOONS_PER_OUNCE;
-    static final int TEA_SPOONS_PER_PINT = 2 * TEA_SPOONS_PER_CUP;
-    static final int TEA_SPOONS_PER_QUART = 2 * TEA_SPOONS_PER_PINT;
-    static final int TEA_SPOONS_PER_GALLON = 4 * TEA_SPOONS_PER_QUART;
+  public double convert(double value, Unit targetUnit) {
+    return convertFromTeaSpoons(convertToTeaSpoons(value), targetUnit);
   }
 }

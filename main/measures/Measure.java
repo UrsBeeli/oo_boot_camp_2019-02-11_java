@@ -15,21 +15,17 @@ public class Measure {
   }
 
   public Measure convertTo(Unit targetUnit) {
-    return new Measure(Unit.convert(this.value, this.unit, targetUnit), targetUnit);
+    return new Measure(unit.convert(this.value, targetUnit), targetUnit);
   }
 
   public Measure add(final Measure other, final Unit targetUnit) {
-    double teaSpoons = Unit.convert(this.value, this.unit, Unit.TEA_SPOON) +
-        Unit.convert(other.value, other.unit, Unit.TEA_SPOON);
-
-    return new Measure(Unit.convert(teaSpoons, Unit.TEA_SPOON, targetUnit), targetUnit);
+    double teaSpoons = this.unit.convert(this.value, Unit.TEASPOON) + other.unit.convert(other.value, Unit.TEASPOON);
+    return new Measure(Unit.TEASPOON.convert(teaSpoons, targetUnit), targetUnit);
   }
 
   public Measure subtract(final Measure other, final Unit targetUnit) {
-    double teaSpoons = Unit.convert(this.value, this.unit, Unit.TEA_SPOON) -
-        Unit.convert(other.value, other.unit, Unit.TEA_SPOON);
-
-    return new Measure(Unit.convert(teaSpoons, Unit.TEA_SPOON, targetUnit), targetUnit);
+    double teaSpoons = this.unit.convert(this.value, Unit.TEASPOON) - other.unit.convert(other.value, Unit.TEASPOON);
+    return new Measure(Unit.TEASPOON.convert(teaSpoons, targetUnit), targetUnit);
   }
 
   @Override
@@ -41,13 +37,12 @@ public class Measure {
       return false;
     }
     final Measure that = (Measure) other;
-    return Unit.convert(this.value, this.unit, Unit.TEA_SPOON) ==
-        Unit.convert(that.value, that.unit, Unit.TEA_SPOON);
+    return this.unit.convert(this.value, Unit.TEASPOON) == that.unit.convert(that.value, Unit.TEASPOON);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Unit.convert(this.value, this.unit, Unit.TEA_SPOON));
+    return Objects.hash(this.unit.convert(this.value, Unit.TEASPOON));
   }
 
   public String toString() {
