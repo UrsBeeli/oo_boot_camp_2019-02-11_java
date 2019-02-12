@@ -37,7 +37,7 @@ public class Measure {
       return false;
     }
     final Measure that = (Measure) other;
-    return this.unit.convert(this.value, Unit.TEASPOON) == that.unit.convert(that.value, Unit.TEASPOON);
+    return this.value == that.unit.convert(that.value, this.unit);
   }
 
   @Override

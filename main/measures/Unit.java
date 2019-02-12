@@ -17,23 +17,21 @@ public enum Unit {
   private final int amountInLowerUnit;
   private final Unit lowerUnit;
 
-  private double convertToTeaSpoons(double value) {
+  private double convertToBaseunit(double value) {
     if (lowerUnit == null) {
       return value;
-    } else {
-      return lowerUnit.convertToTeaSpoons(value * amountInLowerUnit);
     }
+    return lowerUnit.convertToBaseunit(value * amountInLowerUnit);
   }
 
-  private double convertFromTeaSpoons(double value, Unit targetUnit) {
-    if (targetUnit.lowerUnit == null) {
+  private double convertFromBaseunit(double value) {
+    if (lowerUnit == null) {
       return value;
-    } else {
-      return targetUnit.convertFromTeaSpoons(value / targetUnit.amountInLowerUnit, targetUnit.lowerUnit);
     }
+    return lowerUnit.convertFromBaseunit(value / amountInLowerUnit);
   }
 
   public double convert(double value, Unit targetUnit) {
-    return convertFromTeaSpoons(convertToTeaSpoons(value), targetUnit);
+    return targetUnit.convertFromBaseunit(convertToBaseunit(value));
   }
 }
