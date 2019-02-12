@@ -78,12 +78,4 @@ class TemperatureMeasureTest {
   void subtract() {
     assertThrows(UnsupportedOperationException.class, () -> FAHRENHEIT.s(212).subtract(CELSIUS.s(10)));
   }
-
-  @Test
-  void mixedAddition() {
-    assertThrows(IllegalArgumentException.class, () -> {
-      final Quantity inches = INCH.s(9);
-      FAHRENHEIT.s(451).add(inches);
-    });
-  }
 }

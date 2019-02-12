@@ -16,6 +16,6 @@ public class Temperature extends BaseUnit {
   }
 
   public Quantity<Temperature> s(double amount) {
-    return new Quantity<>(amount, this);
+    return new IntervalQuantity<>(amount, this);
   }
 }

@@ -5,34 +5,29 @@ public abstract class BaseUnit {
     this.baseUnit = this;
     this.amountInBaseUnit = 1;
     this.offset = 0;
-    this.supportsArithmetic = true;
   }
 
   BaseUnit(boolean supportsArithmetic) {
     this.baseUnit = this;
     this.amountInBaseUnit = 1;
     this.offset = 0;
-    this.supportsArithmetic = supportsArithmetic;
   }
 
   BaseUnit(double amountInBaseUnit, BaseUnit lowerUnit) {
     this.amountInBaseUnit = amountInBaseUnit * lowerUnit.amountInBaseUnit;
     this.baseUnit = lowerUnit.baseUnit;
     this.offset = 0;
-    this.supportsArithmetic = lowerUnit.supportsArithmetic;
   }
 
   BaseUnit(double amountInBaseUnit, double offset, BaseUnit lowerUnit) {
     this.amountInBaseUnit = amountInBaseUnit * lowerUnit.amountInBaseUnit;
     this.baseUnit = lowerUnit.baseUnit;
     this.offset = offset;
-    this.supportsArithmetic = lowerUnit.supportsArithmetic;
   }
 
   private final double amountInBaseUnit;
   private final double offset;
   private final Object baseUnit;
-  private final boolean supportsArithmetic;
 
   double convertToBaseunit(double value) {
     return (value - offset) * amountInBaseUnit;
@@ -44,10 +39,6 @@ public abstract class BaseUnit {
 
   boolean isCompatible(BaseUnit other) {
     return baseUnit.equals(other.baseUnit);
-  }
-
-  boolean supportsArithmatic() {
-    return supportsArithmetic;
   }
 
   public double convertedAmount(double sourceAmount, BaseUnit sourceUnit) {

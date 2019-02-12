@@ -25,18 +25,12 @@ public class Quantity<T extends BaseUnit> {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot add different unit types");
     }
-    if (!unit.supportsArithmatic()) {
-      throw new UnsupportedOperationException("Cannot add these units");
-    }
     return new Quantity<T>(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
   public Quantity<T> subtract(final Quantity<T> other) {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot subtract different unit types");
-    }
-    if (!unit.supportsArithmatic()) {
-      throw new UnsupportedOperationException("Cannot subtract these units");
     }
     return new Quantity(this.amount - this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
