@@ -1,20 +1,20 @@
 package unit;
 
+import measures.Area;
 import measures.Quantity;
-import measures.Unit;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.HashSet;
 
-import static measures.Unit.CHAIN;
-import static measures.Unit.CUP;
-import static measures.Unit.FOOT;
-import static measures.Unit.FURLONG;
-import static measures.Unit.INCH;
-import static measures.Unit.MILE;
-import static measures.Unit.SQUARE_INCH;
-import static measures.Unit.YARD;
+import static measures.Area.SQUARE_FOOT;
+import static measures.Length.CHAIN;
+import static measures.Volume.CUP;
+import static measures.Length.FOOT;
+import static measures.Length.FURLONG;
+import static measures.Length.INCH;
+import static measures.Length.MILE;
+import static measures.Length.YARD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,70 +22,69 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class DistanceMeasureTest {
 
   @Test
-  void constructor() {
-    assertThrows(NullPointerException.class, () -> new Quantity(15, null));
-  }
-
-  @Test
   void compare() {
-    assertEquals(new Quantity(1, FOOT), new Quantity(12, INCH));
-    assertEquals(new Quantity(1, YARD), new Quantity(3, FOOT));
-    assertEquals(new Quantity(1, CHAIN), new Quantity(22, YARD));
-    assertEquals(new Quantity(1, FURLONG), new Quantity(10, CHAIN));
-    assertEquals(new Quantity(1, MILE), new Quantity(8, FURLONG));
+    assertEquals(FOOT.s(1), INCH.s(12));
+    assertEquals(YARD.s(1), FOOT.s(3));
+    assertEquals(CHAIN.s(1), YARD.s(22));
+    assertEquals(FURLONG.s(1), CHAIN.s(10));
+    assertEquals(MILE.s(1), FURLONG.s(8));
 
-    assertEquals(new Quantity(1, MILE), new Quantity(63360, INCH));
-    assertEquals(new Quantity(1, MILE), new Quantity(5280, FOOT));
-    assertEquals(new Quantity(1, MILE), new Quantity(1760, YARD));
-    assertEquals(new Quantity(1, MILE), new Quantity(80, CHAIN));
-    assertEquals(new Quantity(1, MILE), new Quantity(8, FURLONG));
+    assertEquals(MILE.s(1), INCH.s(63360));
+    assertEquals(MILE.s(1), FOOT.s(5280));
+    assertEquals(MILE.s(1), YARD.s(1760));
+    assertEquals(MILE.s(1), CHAIN.s(80));
+    assertEquals(MILE.s(1), FURLONG.s(8));
   }
 
   @Test
   void convert() {
-    assertEquals(new Quantity(1, FOOT), new Quantity(12, INCH).convertTo(FOOT));
-    assertEquals(new Quantity(12, INCH), new Quantity(1, FOOT).convertTo(INCH));
+    assertEquals(FOOT.s(1), INCH.s(12).convertTo(FOOT));
+    assertEquals(INCH.s(12), FOOT.s(1).convertTo(INCH));
 
-    assertEquals(new Quantity(1, MILE), new Quantity(63360, INCH).convertTo(MILE));
-    assertEquals(new Quantity(63360, INCH), new Quantity(1, MILE).convertTo(INCH));
+    assertEquals(MILE.s(1), INCH.s(63360).convertTo(MILE));
+    assertEquals(INCH.s(63360), MILE.s(1).convertTo(INCH));
 
-    assertEquals(new Quantity(0.5, CHAIN), new Quantity(11, YARD).convertTo(CHAIN));
+    assertEquals(CHAIN.s(0.5), YARD.s(11).convertTo(CHAIN));
 
   }
 
   @Test
   void testHashCode() {
-    assertEquals(new Quantity(4, INCH).hashCode(), new Quantity(4, INCH).hashCode());
+    assertEquals(INCH.s(4).hashCode(), INCH.s(4).hashCode());
+    assertEquals(FOOT.s(1).hashCode(), INCH.s(12).hashCode());
 
-    assertEquals(new Quantity(1, FOOT).hashCode(), new Quantity(12, INCH).hashCode());
-
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(1, FOOT))).contains(new Quantity(1, FOOT)));
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(1, FOOT))).contains(new Quantity(12, INCH)));
+    assertTrue(new HashSet<>(Collections.singleton(FOOT.s(1))).contains(FOOT.s(1)));
+    assertTrue(new HashSet<>(Collections.singleton(FOOT.s(1))).contains(INCH.s(12)));
   }
 
   @Test
   void hashSet() {
     final HashSet<Quantity> hashSet = new HashSet<>();
-    hashSet.add(new Quantity(44, YARD));
-    hashSet.add(new Quantity(44, YARD));
-    hashSet.add(new Quantity(2, CHAIN));
+    hashSet.add(YARD.s(44));
+    hashSet.add(YARD.s(44));
+    hashSet.add(CHAIN.s(2));
 
     assertEquals(1, hashSet.size());
   }
 
   @Test
   void add() {
-    assertEquals(new Quantity(1.5, FOOT), new Quantity(1, FOOT).add(new Quantity(6, INCH)));
-    assertEquals(new Quantity(1, YARD), new Quantity(1, FOOT).add(new Quantity(24, INCH)));
+    assertEquals(FOOT.s(1.5), FOOT.s(1).add(INCH.s(6)));
+    assertEquals(YARD.s(1), FOOT.s(1).add(INCH.s(24)));
   }
 
   @Test
   void subtract() {
-    assertEquals(new Quantity(2, MILE), new Quantity(4, MILE).subtract(new Quantity(16, FURLONG)));
+    assertEquals(MILE.s(2), MILE.s(4).subtract(FURLONG.s(16)));
   }
 
   @Test
-  void mixing() {
-    assertThrows(IllegalArgumentException.class, () -> new Quantity(2, FOOT).add(new Quantity(3, CUP)));
+  void multiply() {
+    assertEquals(SQUARE_FOOT.s(20), FOOT.s(4).multiply(FOOT.s(5)).convertTo(SQUARE_FOOT));
   }
+
+//  @Test
+//  void mixing() {
+//    assertThrows(IllegalArgumentException.class, () -> FOOT.s(2).add(CUP.s(3))); // caught at compile time
+//  }
 }

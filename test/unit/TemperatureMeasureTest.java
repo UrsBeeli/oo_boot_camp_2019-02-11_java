@@ -6,16 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static measures.Unit.CELSIUS;
-import static measures.Unit.CUP;
-import static measures.Unit.FAHRENHEIT;
-import static measures.Unit.GALLON;
-import static measures.Unit.INCH;
-import static measures.Unit.OUNCE;
-import static measures.Unit.PINT;
-import static measures.Unit.QUART;
-import static measures.Unit.TABLESPOON;
-import static measures.Unit.TEASPOON;
+import static measures.Temperature.CELSIUS;
+import static measures.Temperature.FAHRENHEIT;
+import static measures.Length.INCH;
+import static measures.Temperature.KELVIN;
+import static measures.Volume.TEASPOON;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -24,40 +19,38 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TemperatureMeasureTest {
 
   @Test
-  void constructor() {
-    assertThrows(NullPointerException.class, () -> new Quantity(15, null));
-  }
-
-  @Test
   void compare() {
-    assertEquals(new Quantity(0, CELSIUS), new Quantity(32, FAHRENHEIT));
-    assertEquals(new Quantity(10, CELSIUS), new Quantity(50, FAHRENHEIT));
-    assertEquals(new Quantity(100, CELSIUS), new Quantity(212, FAHRENHEIT));
-    assertEquals(new Quantity(-40, CELSIUS), new Quantity(-40, FAHRENHEIT));
-    assertNotEquals(new Quantity(-40, CELSIUS), null);
+    assertEquals(CELSIUS.s(0), FAHRENHEIT.s(32));
+    assertEquals(CELSIUS.s(10), FAHRENHEIT.s(50));
+    assertEquals(CELSIUS.s(100), FAHRENHEIT.s(212));
+    assertEquals(CELSIUS.s(-40), FAHRENHEIT.s(-40));
+    assertNotEquals(CELSIUS.s(-40), null);
+
+    assertEquals(CELSIUS.s(-273), KELVIN.s(0));
+    assertEquals(CELSIUS.s(0), KELVIN.s(273));
   }
 
   @Test
   void convert() {
-    assertEquals(new Quantity(32, FAHRENHEIT), new Quantity(0, CELSIUS).convertTo(FAHRENHEIT));
-    assertEquals(new Quantity(0, CELSIUS), new Quantity(32, FAHRENHEIT).convertTo(CELSIUS));
+    assertEquals(FAHRENHEIT.s(32), CELSIUS.s(0).convertTo(FAHRENHEIT));
+    assertEquals(CELSIUS.s(0), FAHRENHEIT.s(32).convertTo(CELSIUS));
   }
 
   @Test
   void testHashCode() {
-    assertEquals(new Quantity(0, CELSIUS).hashCode(), new Quantity(32, FAHRENHEIT).hashCode());
-    assertEquals(new Quantity(-40, CELSIUS).hashCode(), new Quantity(-40, FAHRENHEIT).hashCode());
+    assertEquals(CELSIUS.s(0).hashCode(), FAHRENHEIT.s(32).hashCode());
+    assertEquals(CELSIUS.s(-40).hashCode(), FAHRENHEIT.s(-40).hashCode());
 
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(13, CELSIUS))).contains(new Quantity(13, CELSIUS)));
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(451, FAHRENHEIT))).contains(new Quantity(451, FAHRENHEIT)));
+    assertTrue(new HashSet<>(Collections.singleton(CELSIUS.s(13))).contains(CELSIUS.s(13)));
+    assertTrue(new HashSet<>(Collections.singleton(FAHRENHEIT.s(451))).contains(FAHRENHEIT.s(451)));
   }
 
   @Test
   void hashSet() {
     final HashSet<Quantity> hashSet = new HashSet<>();
-    hashSet.add(new Quantity(32, FAHRENHEIT));
-    hashSet.add(new Quantity(32, FAHRENHEIT));
-    hashSet.add(new Quantity(0, CELSIUS));
+    hashSet.add(FAHRENHEIT.s(32));
+    hashSet.add(FAHRENHEIT.s(32));
+    hashSet.add(CELSIUS.s(0));
 
     assertEquals(1, hashSet.size());
   }
@@ -65,9 +58,9 @@ class TemperatureMeasureTest {
   @Test
   void mixedHashSet() {
     final HashSet<Quantity> hashSet = new HashSet<>();
-    hashSet.add(new Quantity(3, INCH));
-    hashSet.add(new Quantity(3, TEASPOON));
-    hashSet.add(new Quantity(3, CELSIUS));
+    hashSet.add(INCH.s(3));
+    hashSet.add(TEASPOON.s(3));
+    hashSet.add(CELSIUS.s(3));
 
     // even with equal hashValues, equals() is still used, so this works. phew!
     assertEquals(3, hashSet.size());
@@ -75,16 +68,16 @@ class TemperatureMeasureTest {
 
   @Test
   void add() {
-    assertEquals(new Quantity(10, FAHRENHEIT), new Quantity(-40, FAHRENHEIT).add(new Quantity(10, CELSIUS)));
+    assertEquals(FAHRENHEIT.s(10), FAHRENHEIT.s(-40).add(CELSIUS.s(10)));
   }
 
   @Test
   void subtract() {
-    assertEquals(new Quantity(162, FAHRENHEIT), new Quantity(212, FAHRENHEIT).subtract(new Quantity(10, CELSIUS)));
+    assertEquals(FAHRENHEIT.s(162), FAHRENHEIT.s(212).subtract(CELSIUS.s(10)));
   }
 
-  @Test
-  void mixedAddition() {
-    assertThrows(IllegalArgumentException.class, () -> new Quantity(451, FAHRENHEIT).add(new Quantity(9, INCH)));
-  }
+//  @Test
+//  void mixedAddition() {
+//    assertThrows(IllegalArgumentException.class, () -> new Quantity(451, FAHRENHEIT).add(new Quantity(9, INCH)));  // caught at compile time
+//  }
 }

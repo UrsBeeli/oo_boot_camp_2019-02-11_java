@@ -6,70 +6,62 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static measures.Unit.CUP;
-import static measures.Unit.GALLON;
-import static measures.Unit.INCH;
-import static measures.Unit.OUNCE;
-import static measures.Unit.PINT;
-import static measures.Unit.QUART;
-import static measures.Unit.TABLESPOON;
-import static measures.Unit.TEASPOON;
+import static measures.Length.INCH;
+import static measures.Volume.CUP;
+import static measures.Volume.GALLON;
+import static measures.Volume.OUNCE;
+import static measures.Volume.PINT;
+import static measures.Volume.QUART;
+import static measures.Volume.TABLESPOON;
+import static measures.Volume.TEASPOON;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VolumeMeasureTest {
-
-  @Test
-  void constructor() {
-    assertThrows(NullPointerException.class, () -> new Quantity(15, null));
-  }
-
   @Test
   void compare() {
-    assertEquals(new Quantity(1, TABLESPOON), new Quantity(3, TEASPOON));
-    assertEquals(new Quantity(1, OUNCE), new Quantity(2, TABLESPOON));
-    assertEquals(new Quantity(1, CUP), new Quantity(8, OUNCE));
-    assertEquals(new Quantity(1, PINT), new Quantity(2, CUP));
-    assertEquals(new Quantity(1, QUART), new Quantity(2, PINT));
-    assertEquals(new Quantity(1, GALLON), new Quantity(4, QUART));
+    assertEquals(TABLESPOON.s(1), TEASPOON.s(3));
+    assertEquals(OUNCE.s(1), TABLESPOON.s(2));
+    assertEquals(CUP.s(1), OUNCE.s(8));
+    assertEquals(PINT.s(1), CUP.s(2));
+    assertEquals(QUART.s(1), PINT.s(2));
+    assertEquals(GALLON.s(1), QUART.s(4));
 
-    assertEquals(new Quantity(1, GALLON), new Quantity(768, TEASPOON));
-    assertEquals(new Quantity(1, GALLON), new Quantity(256, TABLESPOON));
-    assertEquals(new Quantity(1, GALLON), new Quantity(128, OUNCE));
-    assertEquals(new Quantity(1, GALLON), new Quantity(16, CUP));
-    assertEquals(new Quantity(1, GALLON), new Quantity(8, PINT));
-    assertEquals(new Quantity(1, GALLON), new Quantity(4, QUART));
+    assertEquals(GALLON.s(1), TEASPOON.s(768));
+    assertEquals(GALLON.s(1), TABLESPOON.s(256));
+    assertEquals(GALLON.s(1), OUNCE.s(128));
+    assertEquals(GALLON.s(1), CUP.s(16));
+    assertEquals(GALLON.s(1), PINT.s(8));
+    assertEquals(GALLON.s(1), QUART.s(4));
   }
 
   @Test
   void convert() {
-    assertEquals(new Quantity(1, TABLESPOON), new Quantity(3, TEASPOON).convertTo(TABLESPOON));
-    assertEquals(new Quantity(3, TEASPOON), new Quantity(1, TABLESPOON).convertTo(TEASPOON));
+    assertEquals(TABLESPOON.s(1), TEASPOON.s(3).convertTo(TABLESPOON));
+    assertEquals(TEASPOON.s(3), TABLESPOON.s(1).convertTo(TEASPOON));
 
-    assertEquals(new Quantity(1, GALLON), new Quantity(768, TEASPOON).convertTo(GALLON));
-    assertEquals(new Quantity(768, TEASPOON), new Quantity(1, GALLON).convertTo(TEASPOON));
+    assertEquals(GALLON.s(1), TEASPOON.s(768).convertTo(GALLON));
+    assertEquals(TEASPOON.s(768), GALLON.s(1).convertTo(TEASPOON));
 
-    assertEquals(new Quantity(0.5, CUP), new Quantity(4, OUNCE).convertTo(CUP));
+    assertEquals(CUP.s(0.5), OUNCE.s(4).convertTo(CUP));
 
   }
 
   @Test
   void testHashCode() {
-    assertEquals(new Quantity(4, TEASPOON).hashCode(), new Quantity(4, TEASPOON).hashCode());
-
-    assertEquals(new Quantity(1, TABLESPOON).hashCode(), new Quantity(3, TEASPOON).hashCode());
-
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(1, TABLESPOON))).contains(new Quantity(1, TABLESPOON)));
-    assertTrue(new HashSet<>(Collections.singleton(new Quantity(1, TABLESPOON))).contains(new Quantity(3, TEASPOON)));
+    assertEquals(TEASPOON.s(4).hashCode(), TEASPOON.s(4).hashCode());
+    assertEquals(TABLESPOON.s(1).hashCode(), TEASPOON.s(3).hashCode());
+    assertTrue(new HashSet<>(Collections.singleton(TABLESPOON.s(1))).contains(TABLESPOON.s(1)));
+    assertTrue(new HashSet<>(Collections.singleton(TABLESPOON.s(1))).contains(TEASPOON.s(3)));
   }
 
   @Test
   void hashSet() {
     final HashSet<Quantity> hashSet = new HashSet<>();
-    hashSet.add(new Quantity(16, OUNCE));
-    hashSet.add(new Quantity(16, OUNCE));
-    hashSet.add(new Quantity(2, CUP));
+    hashSet.add(OUNCE.s(16));
+    hashSet.add(OUNCE.s(16));
+    hashSet.add(CUP.s(2));
 
     assertEquals(1, hashSet.size());
   }
@@ -77,8 +69,8 @@ class VolumeMeasureTest {
   @Test
   void mixedHashSet() {
     final HashSet<Quantity> hashSet = new HashSet<>();
-    hashSet.add(new Quantity(3, INCH));
-    hashSet.add(new Quantity(3, TEASPOON));
+    hashSet.add(INCH.s(3));
+    hashSet.add(TEASPOON.s(3));
 
     // even with equal hashValues, equals() is still used, so this works. phew!
     assertEquals(2, hashSet.size());
@@ -86,11 +78,11 @@ class VolumeMeasureTest {
 
   @Test
   void add() {
-    assertEquals(new Quantity(2, TABLESPOON), new Quantity(1, TABLESPOON).add(new Quantity(3, TEASPOON)));
+    assertEquals(TABLESPOON.s(2), TABLESPOON.s(1).add(TEASPOON.s(3)));
   }
 
   @Test
   void subtract() {
-    assertEquals(new Quantity(3, QUART), new Quantity(4, QUART).subtract(new Quantity(2, PINT)));
+    assertEquals(QUART.s(3), QUART.s(4).subtract(PINT.s(2)));
   }
 }

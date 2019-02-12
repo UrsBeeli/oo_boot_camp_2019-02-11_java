@@ -1,6 +1,9 @@
 package unit;
 
-import measures.Unit;
+import measures.BaseUnit;
+import measures.Length;
+import measures.Temperature;
+import measures.Volume;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,37 +12,37 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class UnitTest {
   @Test
   void conversionToTeaspoons() {
-    assertEquals(3, Unit.TEASPOON.convertedAmount(1, Unit.TABLESPOON));
-    assertEquals(768, Unit.TEASPOON.convertedAmount(1, Unit.GALLON));
+    assertEquals(3, Volume.TEASPOON.convertedAmount(1, Volume.TABLESPOON));
+    assertEquals(768, Volume.TEASPOON.convertedAmount(1, Volume.GALLON));
   }
 
   @Test
   void conversionFromTeaspoons() {
-    assertEquals(1, Unit.TABLESPOON.convertedAmount(3, Unit.TEASPOON));
-    assertEquals(1, Unit.GALLON.convertedAmount(768, Unit.TEASPOON));
+    assertEquals(1, Volume.TABLESPOON.convertedAmount(3, Volume.TEASPOON));
+    assertEquals(1, Volume.GALLON.convertedAmount(768, Volume.TEASPOON));
   }
 
   @Test
   void conversions() {
-    assertEquals(2.5, Unit.CUP.convertedAmount(20, Unit.OUNCE));
-    assertEquals(13, Unit.CUP.convertedAmount(3.25, Unit.QUART));
+    assertEquals(2.5, Volume.CUP.convertedAmount(20, Volume.OUNCE));
+    assertEquals(13, Volume.CUP.convertedAmount(3.25, Volume.QUART));
   }
 
   @Test
   void mixed() {
-    assertThrows(IllegalArgumentException.class, () -> Unit.CUP.convertedAmount(20, Unit.INCH));
+    assertThrows(IllegalArgumentException.class, () -> Volume.CUP.convertedAmount(20, Length.INCH));
   }
 
   @Test
   void temperatures() {
-    assertEquals(0, Unit.CELSIUS.convertedAmount(32, Unit.FAHRENHEIT));
-    assertEquals(10, Unit.CELSIUS.convertedAmount(50, Unit.FAHRENHEIT));
-    assertEquals(100, Unit.CELSIUS.convertedAmount(212, Unit.FAHRENHEIT));
-    assertEquals(-40, Unit.CELSIUS.convertedAmount(-40, Unit.FAHRENHEIT));
+    assertEquals(0, Temperature.CELSIUS.convertedAmount(32, Temperature.FAHRENHEIT));
+    assertEquals(10, Temperature.CELSIUS.convertedAmount(50, Temperature.FAHRENHEIT));
+    assertEquals(100, Temperature.CELSIUS.convertedAmount(212, Temperature.FAHRENHEIT));
+    assertEquals(-40, Temperature.CELSIUS.convertedAmount(-40, Temperature.FAHRENHEIT));
 
-    assertEquals(32, Unit.FAHRENHEIT.convertedAmount(0, Unit.CELSIUS));
-    assertEquals(50, Unit.FAHRENHEIT.convertedAmount(10, Unit.CELSIUS));
-    assertEquals(212, Unit.FAHRENHEIT.convertedAmount(100, Unit.CELSIUS));
-    assertEquals(-40, Unit.FAHRENHEIT.convertedAmount(-40, Unit.CELSIUS));
+    assertEquals(32, Temperature.FAHRENHEIT.convertedAmount(0, Temperature.CELSIUS));
+    assertEquals(50, Temperature.FAHRENHEIT.convertedAmount(10, Temperature.CELSIUS));
+    assertEquals(212, Temperature.FAHRENHEIT.convertedAmount(100, Temperature.CELSIUS));
+    assertEquals(-40, Temperature.FAHRENHEIT.convertedAmount(-40, Temperature.CELSIUS));
   }
 }

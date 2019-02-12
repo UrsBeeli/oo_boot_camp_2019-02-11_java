@@ -3,32 +3,32 @@ package measures;
 
 import java.util.Objects;
 
-public class Quantity {
+public class Quantity<T extends BaseUnit> {
   final double amount;
-  final Unit unit;
+  final BaseUnit unit;
 
-  public Quantity(final double amount, final Unit unit) {
+  protected Quantity(final double amount, final BaseUnit unit) {
     Objects.requireNonNull(unit, "Unit must not be null");
 
     this.amount = amount;
     this.unit = unit;
   }
 
-  public Quantity convertTo(Unit targetUnit) {
+  public Quantity<T> convertTo(T targetUnit) {
     if (!unit.isCompatible(targetUnit)) {
       throw new IllegalArgumentException("Cannot convert between different unit types");
     }
-    return new Quantity(targetUnit.convertedAmount(this.amount, this.unit), targetUnit);
+    return new Quantity<T>(targetUnit.convertedAmount(this.amount, this.unit), targetUnit);
   }
 
-  public Quantity add(final Quantity other) {
+  public Quantity<T> add(final Quantity<T> other) {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot add different unit types");
     }
-    return new Quantity(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
+    return new Quantity<T>(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
-  public Quantity subtract(final Quantity other) {
+  public Quantity<T> subtract(final Quantity<T> other) {
     if (!unit.isCompatible(other.unit)) {
       throw new IllegalArgumentException("Cannot subtract different unit types");
     }
@@ -40,7 +40,7 @@ public class Quantity {
     if (this == other) {
       return true;
     }
-    if (other == null || getClass() != other.getClass()) {
+    if (other == null || !(other instanceof Quantity)) {
       return false;
     }
     final Quantity that = (Quantity) other;
