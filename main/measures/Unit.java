@@ -1,13 +1,13 @@
 package measures;
 
-public final class Unit {
-  public static final Unit TEASPOON = new Unit(0, null);
-  public static final Unit TABLESPOON = new Unit(3, TEASPOON);
-  public static final Unit OUNCE = new Unit(2, TABLESPOON);
-  public static final Unit CUP = new Unit(8, OUNCE);
-  public static final Unit PINT = new Unit(2, CUP);
-  public static final Unit QUART = new Unit(2, PINT);
-  public static final Unit GALLON = new Unit(4, QUART);
+public enum Unit {
+  TEASPOON(0, null),
+  TABLESPOON(3, TEASPOON),
+  OUNCE(2, TABLESPOON),
+  CUP(8, OUNCE),
+  PINT(2, CUP),
+  QUART(2, PINT),
+  GALLON(4, QUART);
 
   private Unit(int amountInLowerUnit, Unit lowerUnit) {
     this.amountInLowerUnit = amountInLowerUnit;

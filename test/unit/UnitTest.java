@@ -17,4 +17,10 @@ public class UnitTest {
     assertEquals(1, Unit.TEASPOON.convert(3, Unit.TABLESPOON));
     assertEquals(1, Unit.TEASPOON.convert(768, Unit.GALLON));
   }
+
+  @Test
+  void conversions() {
+    assertEquals(2.5, Unit.OUNCE.convert(20, Unit.CUP));
+    assertEquals(13, Unit.QUART.convert(3.25, Unit.CUP));
+  }
 }
