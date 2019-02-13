@@ -1,42 +1,28 @@
 package unit;
 
 import graph.Node;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GraphTest {
-  Node a;
-  Node b;
-  Node c;
-  Node d;
-  Node e;
-  Node f;
-  Node g;
+  Node a = new Node();
+  Node b = new Node();
+  Node c = new Node();
+  Node d = new Node();
+  Node e = new Node();
+  Node f = new Node();
+  Node g = new Node();
 
-  @BeforeEach
-  void setup() {
-    a = new Node();
-    b = new Node();
-    c = new Node();
-    d = new Node();
-    e = new Node();
-    f = new Node();
-    g = new Node();
-
+  {
     b.addPathTo(a);
-    b.addPathTo(c);
+    b.addPathTo(c).addPathTo(d).addPathTo(e).addPathTo(b);
     b.addPathTo(f);
-
-    c.addPathTo(d);
     c.addPathTo(d);
     c.addPathTo(e);
-
-    d.addPathTo(e);
-
-    e.addPathTo(b);
   }
 
   @Test
@@ -96,5 +82,20 @@ public class GraphTest {
     assertFalse(g.canReach(e));
     assertFalse(g.canReach(f));
     assertTrue(g.canReach(g));
+  }
+
+  @Test
+  void hop() {
+    assertEquals(0, a.hopCount(a));
+    assertNull(a.hopCount(g));
+    assertEquals(1, b.hopCount(f));
+    assertEquals(3, d.hopCount(c));
+
+    Integer hops = c.hopCount(b);
+    assertTrue(hops == 2 || hops == 3);
+
+    hops = c.hopCount(e);
+    assertTrue(hops == 1 || hops == 2);
+
   }
 }
