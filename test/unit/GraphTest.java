@@ -3,6 +3,8 @@ package unit;
 import graph.Node;
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -96,6 +98,14 @@ public class GraphTest {
 
     hops = c.hopCount(e);
     assertTrue(hops == 1 || hops == 2);
+
+    // min hops
+    assertEquals(2, c.hopCount(b));
+    assertEquals(1, c.hopCount(e));
+
+    // max hops
+    // assertEquals(3, c.hopCount(b));
+    // assertEquals(2, c.hopCount(e));
 
   }
 }

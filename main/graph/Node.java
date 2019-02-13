@@ -1,8 +1,14 @@
 package graph;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Node {
   private Set<Node> destinations = new HashSet<>();
@@ -13,40 +19,31 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return canReach(destination, new HashSet<>());
-  }
-
-  private boolean canReach(final Node destination, final Set<Node> alreadyVisited) {
-    if (destination == this) {
-      return true;
-    }
-    if (alreadyVisited.contains(this)) {
-      return false;
-    }
-
-    alreadyVisited.add(this);
-    return destinations.stream().anyMatch(d -> d.canReach(destination, alreadyVisited));
+    return hopCount(destination) != null;
   }
 
   public Integer hopCount(Node destination) {
-    return hopCount(destination, new HashSet<>());
+    return hopCount(destination, new HashMap<>());
   }
 
-  private Integer hopCount(Node destination, Set<Node> visitedNodes) {
+  private <T> Integer hopCount(Node destination, Map<Node, Integer> visitedNodes) {
     if (this == destination) {
       return 0;
     }
-    if (visitedNodes.contains(this)) {
-      return null;
+    if (visitedNodes.containsKey(this)) {
+      return visitedNodes.get(this);
     }
-    visitedNodes.add(this);
+    visitedNodes.put(this, null);
 
     return destinations.stream()
                        .map(d -> d.hopCount(destination, visitedNodes))
                        .filter(Objects::nonNull)
-                       .map(hop -> hop + 1)
-                       .sorted()
-                       .findFirst()
+                       .min(Integer::compareTo)
+                       .map(hop -> {
+                         hop = hop + 1;
+                         visitedNodes.put(this, hop);
+                         return hop;
+                       })
                        .orElse(null);
   }
 }
