@@ -7,12 +7,6 @@ public abstract class BaseUnit {
     this.offset = 0;
   }
 
-  BaseUnit(boolean supportsArithmetic) {
-    this.baseUnit = this;
-    this.amountInBaseUnit = 1;
-    this.offset = 0;
-  }
-
   BaseUnit(double amountInBaseUnit, BaseUnit lowerUnit) {
     this.amountInBaseUnit = amountInBaseUnit * lowerUnit.amountInBaseUnit;
     this.baseUnit = lowerUnit.baseUnit;
@@ -47,4 +41,6 @@ public abstract class BaseUnit {
     }
     return this.convertFromBaseunit(sourceUnit.convertToBaseunit(sourceAmount));
   }
+
+  abstract public Quantity<? extends BaseUnit> s(double amount);
 }

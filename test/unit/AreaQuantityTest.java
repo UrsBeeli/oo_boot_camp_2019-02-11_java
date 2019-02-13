@@ -9,7 +9,7 @@ import static measures.Length.FOOT;
 import static measures.Volume.CUBE_FOOT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AreaMesaureTest {
+public class AreaQuantityTest {
   @Test
   void add() {
     assertEquals(SQUARE_FOOT.s(20.25), SQUARE_FOOT.s(20).add(SQUARE_INCH.s(36)));

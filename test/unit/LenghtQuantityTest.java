@@ -8,14 +8,19 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import static measures.Area.SQUARE_FOOT;
+import static measures.Length.CENTIMETER;
 import static measures.Length.CHAIN;
 import static measures.Length.FOOT;
 import static measures.Length.FURLONG;
 import static measures.Length.INCH;
+import static measures.Length.KILOMETER;
+import static measures.Length.METER;
 import static measures.Length.MILE;
+import static measures.Length.MILLIMETER;
 import static measures.Length.YARD;
 import static measures.Volume.CUP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -34,6 +39,10 @@ class LenghtQuantityTest {
     assertEquals(MILE.s(1), YARD.s(1760));
     assertEquals(MILE.s(1), CHAIN.s(80));
     assertEquals(MILE.s(1), FURLONG.s(8));
+
+    assertEquals(KILOMETER.s(1), METER.s(1000));
+    assertEquals(METER.s(1), CENTIMETER.s(100));
+    assertEquals(CENTIMETER.s(1), MILLIMETER.s(10));
   }
 
   @Test

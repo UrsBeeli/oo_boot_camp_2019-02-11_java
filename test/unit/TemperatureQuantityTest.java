@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class TemperatureMeasureTest {
+class TemperatureQuantityTest {
 
   @Test
   void compare() {
@@ -67,15 +67,5 @@ class TemperatureMeasureTest {
 
     // even with equal hashValues, equals() is still used, so this works. phew!
     assertEquals(3, hashSet.size());
-  }
-
-  @Test
-  void add() {
-    assertThrows(UnsupportedOperationException.class, () -> FAHRENHEIT.s(-40).add(CELSIUS.s(10)));
-  }
-
-  @Test
-  void subtract() {
-    assertThrows(UnsupportedOperationException.class, () -> FAHRENHEIT.s(212).subtract(CELSIUS.s(10)));
   }
 }

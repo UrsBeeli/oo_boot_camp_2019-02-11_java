@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class VolumeMeasureTest {
+class VolumeQuantityTest {
   @Test
   void compare() {
     assertEquals(TABLESPOON.s(1), TEASPOON.s(3));

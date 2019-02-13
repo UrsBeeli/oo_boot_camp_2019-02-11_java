@@ -2,17 +2,24 @@ package measures;
 
 public class IntervalQuantity<T extends BaseUnit> extends Quantity<T> {
 
-  protected IntervalQuantity(final double amount, final T unit) {
+  IntervalQuantity(final double amount, final T unit) {
     super(amount, unit);
   }
 
-  @Override
   public Quantity<T> add(final Quantity<T> other) {
-    throw new UnsupportedOperationException("Cannot add these types");
+    compatibilityCheck(other);
+    return new Quantity<>(this.amount + this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
 
-  @Override
   public Quantity<T> subtract(final Quantity<T> other) {
-    throw new UnsupportedOperationException("Cannot subtract these types");
+    compatibilityCheck(other);
+    return new Quantity<>(this.amount - this.unit.convertedAmount(other.amount, other.unit), this.unit);
   }
+
+  private void compatibilityCheck(final Quantity<T> other) {
+    if (!unit.isCompatible(other.unit)) {
+      throw new IllegalArgumentException("Arithmetic operations not allowed on different unit types");
+    }
+  }
+
 }
