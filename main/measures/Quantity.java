@@ -23,6 +23,9 @@ public class Quantity<T extends BaseUnit> implements Comparable<Quantity<T>> {
     return new Quantity<>(targetUnit.convertedAmount(this.amount, this.unit), targetUnit);
   }
 
+  private double convertedAmount(Quantity<T> quantity) {
+    return this.unit.convertedAmount(quantity.amount, quantity.unit);
+  }
 
   @Override
   public boolean equals(final Object other) {
@@ -33,7 +36,7 @@ public class Quantity<T extends BaseUnit> implements Comparable<Quantity<T>> {
       return false;
     }
     final Quantity that = (Quantity) other;
-    return this.unit.isCompatible(that.unit) && this.amount == this.unit.convertedAmount(that.amount, that.unit);
+    return this.unit.isCompatible(that.unit) && this.amount == convertedAmount(that);
   }
 
   @Override
@@ -46,7 +49,7 @@ public class Quantity<T extends BaseUnit> implements Comparable<Quantity<T>> {
   }
 
   @Override
-  public boolean isLargerThan(final Quantity<T> other) {
-    return this.amount > this.unit.convertedAmount(other.amount, other.unit);
+  public boolean isBetterThan(final Quantity<T> other) {
+    return this.amount > convertedAmount(other);
   }
 }

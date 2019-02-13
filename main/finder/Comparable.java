@@ -3,15 +3,15 @@ package finder;
 import java.util.Collection;
 
 public interface Comparable<T> {
-  boolean isLargerThan(T other);
+  boolean isBetterThan(T other);
 
-  public static <T extends Comparable<T>> T findLargest(final Collection<T> collection) {
-    T largest = null;
-    for (T t : collection) {
-      if (largest == null || t.isLargerThan(largest)) {
-        largest = t;
+  public static <S extends Comparable<S>> S findBest(final Collection<S> collection) {
+    S champion = null;
+    for (S challenger : collection) {
+      if (champion == null || challenger.isBetterThan(champion)) {
+        champion = challenger;
       }
     }
-    return largest;
+    return champion;
   }
 }

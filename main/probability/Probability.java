@@ -66,7 +66,7 @@ public class Probability implements Comparable<Probability> {
   }
 
   @Override
-  public boolean isLargerThan(final Probability other) {
+  public boolean isBetterThan(final Probability other) {
     return likelyhoodFraction > other.likelyhoodFraction;
   }
 }

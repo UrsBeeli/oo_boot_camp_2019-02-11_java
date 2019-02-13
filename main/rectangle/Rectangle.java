@@ -29,7 +29,7 @@ public class Rectangle implements Comparable<Rectangle> {
   }
 
   @Override
-  public boolean isLargerThan(final Rectangle other) {
+  public boolean isBetterThan(final Rectangle other) {
     return area() > other.area();
   }
 }
