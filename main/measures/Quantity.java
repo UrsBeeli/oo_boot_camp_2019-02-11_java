@@ -1,9 +1,11 @@
 package measures;
 
 
+import finder.Comparable;
+
 import java.util.Objects;
 
-public class Quantity<T extends BaseUnit> {
+public class Quantity<T extends BaseUnit> implements Comparable<Quantity<T>> {
   final double amount;
   final T unit;
 
@@ -41,5 +43,10 @@ public class Quantity<T extends BaseUnit> {
 
   public String toString() {
     return String.format("%f %s", amount, unit);
+  }
+
+  @Override
+  public boolean isLargerThan(final Quantity<T> other) {
+    return this.amount > this.unit.convertedAmount(other.amount, other.unit);
   }
 }

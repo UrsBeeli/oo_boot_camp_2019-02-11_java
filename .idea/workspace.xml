@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c6b7e5b-bd2a-4c7c-80ca-21a5bfd4d971" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-    </list>
-    <list id="801043dc-25fc-45f6-9793-8c74e10ac911" name="Not interested" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oo_boot_camp_2019-02-11_java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oo_boot_camp_2019-02-11_java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/measures/Quantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/measures/Quantity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/probability/Probability.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/probability/Probability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/rectangle/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/rectangle/Rectangle.java" afterDir="false" />
     </list>
+    <list id="801043dc-25fc-45f6-9793-8c74e10ac911" name="Not interested" comment="meta information" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +18,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/rectangle/Rectangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="198">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+              <folding>
+                <element signature="e#1144#1145#0" expanded="true" />
+                <element signature="e#1166#1167#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../eaio-ng/jdk/openjdk8/src.zip!/java/util/Comparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="528" column="31" selection-start-line="528" selection-start-column="21" selection-end-line="528" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/unit/SortingTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="574">
+              <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/measures/Quantity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1028#1029#0" expanded="true" />
+                <element signature="e#1094#1095#0" expanded="true" />
+                <element signature="e#1124#1125#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+                <element signature="e#1247#1248#0" expanded="true" />
+                <element signature="e#1329#1330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/probability/Probability.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2117#2118#0" expanded="true" />
+                <element signature="e#2138#2139#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#554#555#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/finder/Comparable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -32,6 +110,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -96,9 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/unit/ProbabilityTest.java" />
-        <option value="$PROJECT_DIR$/main/probability/Probability.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.aidl" />
         <option value="$PROJECT_DIR$/main/measures/Measure.java" />
         <option value="$PROJECT_DIR$/main/measures/CookingMeasure.java" />
         <option value="$PROJECT_DIR$/test/unit/MeasureTest.java" />
@@ -123,7 +199,6 @@
         <option value="$PROJECT_DIR$/main/measures/MultiplyableQuantity.java" />
         <option value="$PROJECT_DIR$/main/measures/RatioQuantity.java" />
         <option value="$PROJECT_DIR$/main/measures/IntervalQuantity.java" />
-        <option value="$PROJECT_DIR$/main/measures/Quantity.java" />
         <option value="$PROJECT_DIR$/test/unit/TemperatureMeasureTest.java" />
         <option value="$PROJECT_DIR$/test/unit/TemperatureQuantityTest.java" />
         <option value="$PROJECT_DIR$/test/unit/VolumeMeasureTest.java" />
@@ -139,9 +214,18 @@
         <option value="$PROJECT_DIR$/test/rectange/Square.java" />
         <option value="$PROJECT_DIR$/test/rectangle/Square.java" />
         <option value="$PROJECT_DIR$/main/rectangle/Square.java" />
-        <option value="$PROJECT_DIR$/main/rectangle/Rectangle.java" />
         <option value="$PROJECT_DIR$/test/unit/RectangleTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/main/rectangle/HasArea.java" />
+        <option value="$PROJECT_DIR$/test/unit/Finder.java" />
+        <option value="$PROJECT_DIR$/main/rectangle/Finder.java" />
+        <option value="$PROJECT_DIR$/main/finder/Finder.java" />
+        <option value="$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java" />
+        <option value="$PROJECT_DIR$/main/probability/Probability.java" />
+        <option value="$PROJECT_DIR$/main/rectangle/Rectangle.java" />
+        <option value="$PROJECT_DIR$/main/measures/Quantity.java" />
+        <option value="$PROJECT_DIR$/main/finder/Comparable.java" />
+        <option value="$PROJECT_DIR$/test/unit/SortingTest.java" />
       </list>
     </option>
   </component>
@@ -175,6 +259,18 @@
               <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
               <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="measures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="probability" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="rectangle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -187,6 +283,36 @@
               <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="unit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (openJdk) &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (openJdk) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (openJdk) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 (openJdk) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -203,10 +329,11 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550054039246" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550061654114" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="AIDL" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/main" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -219,15 +346,19 @@
       <recent name="rectangle" />
       <recent name="" />
     </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="finder" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="measures" />
       <recent name="unit" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="unit" />
+      <recent name="rectangle" />
       <recent name="rectange" />
       <recent name="measures" />
       <recent name="probability" />
-      <recent name="rectangle" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -242,8 +373,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RectangleTest">
-    <configuration name="LenghtQuantityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SortingTest.findExtremesOfRectangle">
+    <configuration name="SortingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oo_boot_camp_2019-02-11_java" />
       <extension name="coverage">
         <pattern>
@@ -252,13 +383,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.LenghtQuantityTest" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RectangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortingTest.findExtremesOfRectangle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oo_boot_camp_2019-02-11_java" />
       <extension name="coverage">
         <pattern>
@@ -267,29 +398,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.RectangleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RectangleTest.circumference" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oo_boot_camp_2019-02-11_java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unit.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.RectangleTest" />
-      <option name="METHOD_NAME" value="circumference" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findExtremesOfRectangle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RectangleTest.notNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortingTest.findLargestQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oo_boot_camp_2019-02-11_java" />
       <extension name="coverage">
         <pattern>
@@ -298,14 +414,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.RectangleTest" />
-      <option name="METHOD_NAME" value="notNegative" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findLargestQuantity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RectangleTest.notNullNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortingTest.findLargestRectangleByComparable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oo_boot_camp_2019-02-11_java" />
       <extension name="coverage">
         <pattern>
@@ -314,8 +430,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.RectangleTest" />
-      <option name="METHOD_NAME" value="notNullNegative" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findLargestRectangleByComparable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortingTest.nastyStuff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oo_boot_camp_2019-02-11_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="nastyStuff" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -323,11 +455,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RectangleTest" />
-        <item itemvalue="JUnit.RectangleTest.notNullNegative" />
-        <item itemvalue="JUnit.RectangleTest.notNegative" />
-        <item itemvalue="JUnit.RectangleTest.circumference" />
-        <item itemvalue="JUnit.LenghtQuantityTest" />
+        <item itemvalue="JUnit.SortingTest.findExtremesOfRectangle" />
+        <item itemvalue="JUnit.SortingTest" />
+        <item itemvalue="JUnit.SortingTest.findLargestRectangleByComparable" />
+        <item itemvalue="JUnit.SortingTest.findLargestQuantity" />
+        <item itemvalue="JUnit.SortingTest.nastyStuff" />
       </list>
     </recent_temporary>
   </component>
@@ -344,7 +476,7 @@
       <updated>1549878007034</updated>
       <workItem from="1549878008468" duration="19453000" />
       <workItem from="1549961360523" duration="22137000" />
-      <workItem from="1550044803712" duration="7148000" />
+      <workItem from="1550044803712" duration="12468000" />
     </task>
     <task id="LOCAL-00001" summary="exercise 1">
       <created>1549883777015</created>
@@ -465,43 +597,64 @@
       <option name="project" value="LOCAL" />
       <updated>1550053918525</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="meta information">
+      <created>1550054025484</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054025484</updated>
+    </task>
+    <task id="LOCAL-00019" summary="meta information">
+      <created>1550054056702</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054056702</updated>
+    </task>
+    <task id="LOCAL-00020" summary="meta information">
+      <created>1550054080972</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054080972</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LenghtQuantityTest - 2019.02.13 at 10h 17m 46s.xml">
-      <configuration name="LenghtQuantityTest" configurationId="JUnit" />
+    <history-entry file="SortingTest_nastyStuff - 2019.02.13 at 12h 15m 15s.xml">
+      <configuration name="SortingTest.nastyStuff" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LenghtQuantityTest - 2019.02.13 at 10h 22m 21s.xml">
-      <configuration name="LenghtQuantityTest" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 15m 34s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LenghtQuantityTest - 2019.02.13 at 10h 51m 37s.xml">
-      <configuration name="LenghtQuantityTest" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 21m 01s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest_circumference - 2019.02.13 at 11h 06m 32s.xml">
-      <configuration name="RectangleTest.circumference" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 25m 38s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest - 2019.02.13 at 11h 12m 54s.xml">
-      <configuration name="RectangleTest" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 26m 51s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest_notNegative - 2019.02.13 at 11h 13m 58s.xml">
-      <configuration name="RectangleTest.notNegative" configurationId="JUnit" />
+    <history-entry file="SortingTest_findLargestQuantity - 2019.02.13 at 12h 27m 31s.xml">
+      <configuration name="SortingTest.findLargestQuantity" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest_notNegative - 2019.02.13 at 11h 15m 31s.xml">
-      <configuration name="RectangleTest.notNegative" configurationId="JUnit" />
+    <history-entry file="SortingTest_findLargestRectangleByComparable - 2019.02.13 at 12h 48m 32s.xml">
+      <configuration name="SortingTest.findLargestRectangleByComparable" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest_notNullNegative - 2019.02.13 at 11h 16m 12s.xml">
-      <configuration name="RectangleTest.notNullNegative" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 48m 38s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest - 2019.02.13 at 11h 16m 46s.xml">
-      <configuration name="RectangleTest" configurationId="JUnit" />
+    <history-entry file="SortingTest_findExtremesOfRectangle - 2019.02.13 at 13h 39m 52s.xml">
+      <configuration name="SortingTest.findExtremesOfRectangle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RectangleTest - 2019.02.13 at 11h 29m 53s.xml">
-      <configuration name="RectangleTest" configurationId="JUnit" />
+    <history-entry file="SortingTest_findExtremesOfRectangle - 2019.02.13 at 13h 40m 00s.xml">
+      <configuration name="SortingTest.findExtremesOfRectangle" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48239000" />
+    <option name="totallyTimeSpent" value="53559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -520,7 +673,7 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.31419286" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.156013" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -529,7 +682,7 @@
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="14" visible="true" weight="0.1928494" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.1928494" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
@@ -607,7 +760,8 @@
     <MESSAGE value="cube inches to teaspon factor added" />
     <MESSAGE value="no maths on temperatures, metric measures" />
     <MESSAGE value="square" />
-    <option name="LAST_COMMIT_MESSAGE" value="square" />
+    <MESSAGE value="meta information" />
+    <option name="LAST_COMMIT_MESSAGE" value="meta information" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -641,13 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/probability/Probability.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -780,13 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/measures/Quantity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="33" column="45" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/measures/Temperature.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -835,17 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/rectangle/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/unit/RectangleTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -861,6 +990,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../eaio-ng/jdk/openjdk8/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="528" column="31" selection-start-line="528" selection-start-column="21" selection-end-line="528" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/rectangle/HasArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="13" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/probability/Probability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
+            <element signature="e#2138#2139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/rectangle/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Quantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/finder/Comparable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="73" selection-start-line="7" selection-start-column="73" selection-end-line="7" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/SortingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

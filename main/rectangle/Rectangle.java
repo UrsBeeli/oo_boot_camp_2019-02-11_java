@@ -1,6 +1,8 @@
 package rectangle;
 
-public class Rectangle {
+import finder.Comparable;
+
+public class Rectangle implements Comparable<Rectangle> {
 
   private final double height;
   private final double width;
@@ -24,5 +26,10 @@ public class Rectangle {
 
   public static Rectangle square(double length) {
     return new Rectangle(length, length);
+  }
+
+  @Override
+  public boolean isLargerThan(final Rectangle other) {
+    return area() > other.area();
   }
 }

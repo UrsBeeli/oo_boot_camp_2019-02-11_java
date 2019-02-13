@@ -2,7 +2,9 @@ package probability;
 
 import java.util.Objects;
 
-public class Probability {
+import finder.Comparable;
+
+public class Probability implements Comparable<Probability> {
   private static final double CERTAINTY = 1.0;
   private static final double MAX_EPSILON = 0.0000000001;
 
@@ -61,5 +63,10 @@ public class Probability {
   @Override
   public int hashCode() {
     return Objects.hash(likelyhoodFraction);
+  }
+
+  @Override
+  public boolean isLargerThan(final Probability other) {
+    return likelyhoodFraction > other.likelyhoodFraction;
   }
 }
