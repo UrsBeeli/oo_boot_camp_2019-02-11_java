@@ -2,7 +2,9 @@ package graph;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Function;
+
+import static graph.Path.FEWEST_HOPS;
+import static graph.Path.LEAST_COST;
 
 public class Node {
   private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
@@ -14,23 +16,23 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return weight(destination, new HashSet<>(), Path::hops) != UNREACHABLE;
+    return weight(destination, new HashSet<>(), FEWEST_HOPS) != UNREACHABLE;
   }
 
   public int hopCount(Node destination) {
-    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), Path::hops));
+    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), FEWEST_HOPS));
   }
 
   public int cost(final Node destination) {
-    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), Path::weight));
+    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), LEAST_COST));
   }
 
-  double weight(final Node destination, Set<Node> visitedNodes, Function<Path, Integer> pathWeight) {
+  double weight(final Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
     if (destination == this) return 0;
     if (visitedNodes.contains(this)) return UNREACHABLE;
 
     return paths.stream()
-                .mapToDouble(path -> path.weight(destination, copyWithThis(visitedNodes), pathWeight))
+                .mapToDouble(path -> path.weight(destination, copyWithThis(visitedNodes), weightStrategy))
                 .min()
                 .orElse(UNREACHABLE);
   }

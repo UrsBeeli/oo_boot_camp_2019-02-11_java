@@ -1,9 +1,13 @@
 package graph;
 
 import java.util.Set;
-import java.util.function.Function;
 
 class Path {
+  interface WeightStrategy { double weight(double cost); }
+
+  static final WeightStrategy LEAST_COST = cost -> cost;
+  static final WeightStrategy FEWEST_HOPS = ignore -> 1;
+
   private final Node target;
   private final Integer cost;
 
@@ -12,15 +16,7 @@ class Path {
     this.cost = cost;
   }
 
-  double weight(Node destination, Set<Node> visitedNodes, Function<Path, Integer> weight) {
-    return target.weight(destination, visitedNodes, weight) + weight.apply(this);
-  }
-
-  Integer hops() {
-    return 1;
-  }
-
-  Integer weight() {
-    return cost;
+  double weight(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
+    return target.weight(destination, visitedNodes, weightStrategy) + weightStrategy.weight(cost);
   }
 }
