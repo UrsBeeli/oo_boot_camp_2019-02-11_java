@@ -110,6 +110,8 @@ public class GraphTest {
 
   @Test
   void cost() {
+    assertThrows(IllegalArgumentException.class, () -> g.cost(a));
+    assertEquals(0, g.cost(g));
     assertEquals(5, b.cost(a));
     assertEquals(6, b.cost(c));
     assertEquals(7, b.cost(d));
