@@ -1,16 +1,12 @@
 package graph;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class Node {
+  private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
+
   private Set<Node> destinations = new HashSet<>();
 
   public Node addPathTo(final Node destination) {
@@ -19,31 +15,34 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return hopCount(destination) != null;
+    return hopCount(destination, new HashSet<>()) != UNREACHABLE;
   }
 
-  public Integer hopCount(Node destination) {
-    return hopCount(destination, new HashMap<>());
+  public int hopCount(Node destination) {
+    final double hopCount = hopCount(destination, new HashSet<>());
+    if (hopCount == UNREACHABLE) {
+      throw new IllegalArgumentException("Cannot reach destination");
+    }
+    return (int) hopCount;
   }
 
-  private <T> Integer hopCount(Node destination, Map<Node, Integer> visitedNodes) {
+  private double hopCount(Node destination, Set<Node> visitedNodes) {
     if (this == destination) {
       return 0;
     }
-    if (visitedNodes.containsKey(this)) {
-      return visitedNodes.get(this);
+    if (visitedNodes.contains(this)) {
+      return UNREACHABLE;
     }
-    visitedNodes.put(this, null);
 
     return destinations.stream()
-                       .map(d -> d.hopCount(destination, visitedNodes))
-                       .filter(Objects::nonNull)
-                       .min(Integer::compareTo)
-                       .map(hop -> {
-                         hop = hop + 1;
-                         visitedNodes.put(this, hop);
-                         return hop;
-                       })
-                       .orElse(null);
+                       .mapToDouble(d -> d.hopCount(destination, copyWithThis(visitedNodes)) + 1)
+                       .min()
+                       .orElse(UNREACHABLE);
+  }
+
+  private Set<Node> copyWithThis(Set<Node> list) {
+    Set<Node> result = new HashSet<>(list);
+    result.add(this);
+    return result;
   }
 }

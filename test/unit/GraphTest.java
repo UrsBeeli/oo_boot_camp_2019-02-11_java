@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GraphTest {
@@ -89,19 +90,14 @@ public class GraphTest {
   @Test
   void hop() {
     assertEquals(0, a.hopCount(a));
-    assertNull(a.hopCount(g));
+    assertThrows(IllegalArgumentException.class, () -> a.hopCount(g));
     assertEquals(1, b.hopCount(f));
     assertEquals(3, d.hopCount(c));
-
-    Integer hops = c.hopCount(b);
-    assertTrue(hops == 2 || hops == 3);
-
-    hops = c.hopCount(e);
-    assertTrue(hops == 1 || hops == 2);
 
     // min hops
     assertEquals(2, c.hopCount(b));
     assertEquals(1, c.hopCount(e));
+    assertEquals(3, c.hopCount(f));
 
     // max hops
     // assertEquals(3, c.hopCount(b));
