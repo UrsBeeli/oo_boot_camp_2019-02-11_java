@@ -2,16 +2,16 @@ package graph;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Node {
   private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
 
-  private Set<Node> destinations = new HashSet<>();
+  private Map<Node, Integer> destinations = new HashMap<>();
 
-  public Node addPathTo(final Node destination) {
-    destinations.add(destination);
-    return destination;
+  public void addPathTo(final Node destination, int cost) {
+    destinations.put(destination, cost);
   }
 
   public boolean canReach(final Node destination) {
@@ -19,11 +19,11 @@ public class Node {
   }
 
   public int hopCount(Node destination) {
-    final double hopCount = hopCount(destination, new HashSet<>());
-    if (hopCount == UNREACHABLE) {
-      throw new IllegalArgumentException("Cannot reach destination");
-    }
-    return (int) hopCount;
+    return valueOrThrowIfUnreachable(hopCount(destination, new HashSet<>()));
+  }
+
+  public int cost(final Node destination) {
+    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>()));
   }
 
   private double hopCount(Node destination, Set<Node> visitedNodes) {
@@ -34,8 +34,23 @@ public class Node {
       return UNREACHABLE;
     }
 
-    return destinations.stream()
-                       .mapToDouble(d -> d.hopCount(destination, copyWithThis(visitedNodes)) + 1)
+    return destinations.keySet().stream()
+                       .mapToDouble(child -> child.hopCount(destination, copyWithThis(visitedNodes)) + 1)
+                       .min()
+                       .orElse(UNREACHABLE);
+  }
+
+
+  public double cost(final Node destination, Set<Node> visitedNodes) {
+    if (destination == this) {
+      return 0;
+    }
+    if (visitedNodes.contains(this)) {
+      return UNREACHABLE;
+    }
+
+    return destinations.entrySet().stream()
+                       .mapToDouble(child -> child.getKey().cost(destination, copyWithThis(visitedNodes)) + child.getValue())
                        .min()
                        .orElse(UNREACHABLE);
   }
@@ -44,5 +59,12 @@ public class Node {
     Set<Node> result = new HashSet<>(list);
     result.add(this);
     return result;
+  }
+
+  private int valueOrThrowIfUnreachable(final double result) {
+    if (result == UNREACHABLE) {
+      throw new IllegalArgumentException("Cannot reach destination");
+    }
+    return (int) result;
   }
 }

@@ -3,11 +3,8 @@ package unit;
 import graph.Node;
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -21,11 +18,17 @@ public class GraphTest {
   Node g = new Node();
 
   {
-    b.addPathTo(a);
-    b.addPathTo(c).addPathTo(d).addPathTo(e).addPathTo(b);
-    b.addPathTo(f);
-    c.addPathTo(d);
-    c.addPathTo(e);
+    b.addPathTo(a, 5);
+    b.addPathTo(c, 6);
+    b.addPathTo(f, 4);
+
+    c.addPathTo(d, 7);
+    c.addPathTo(d, 1);
+    c.addPathTo(e, 8);
+
+    d.addPathTo(e, 2);
+
+    e.addPathTo(b, 3);
   }
 
   @Test
@@ -103,5 +106,17 @@ public class GraphTest {
     // assertEquals(3, c.hopCount(b));
     // assertEquals(2, c.hopCount(e));
 
+  }
+
+  @Test
+  void cost() {
+    assertEquals(5, b.cost(a));
+    assertEquals(6, b.cost(c));
+    assertEquals(7, b.cost(d));
+    assertEquals(9, b.cost(e));
+    assertEquals(1, c.cost(d));
+    assertEquals(3, c.cost(e));
+    assertEquals(6, c.cost(b));
+    assertEquals(10, c.cost(f));
   }
 }
