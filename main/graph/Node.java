@@ -1,33 +1,31 @@
 package graph;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 
 public class Node {
   private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
 
-  private Map<Node, Integer> destinations = new HashMap<>();
+  private Set<Path> paths = new HashSet<>();
 
   public void addPathTo(final Node destination, int cost) {
-    destinations.put(destination, cost);
+    paths.add(new Path(destination, cost));
   }
 
   public boolean canReach(final Node destination) {
-    return cost(destination, new HashSet<>(), Node::hops) != UNREACHABLE;
+    return weight(destination, new HashSet<>(), Path::hops) != UNREACHABLE;
   }
 
   public int hopCount(Node destination) {
-    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>(), Node::hops));
+    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), Path::hops));
   }
 
   public int cost(final Node destination) {
-    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>(), Map.Entry::getValue));
+    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), Path::weight));
   }
 
-  private double cost(final Node destination, Set<Node> visitedNodes, Function<Map.Entry<Node, Integer>, Integer> pathWeight) {
+  double weight(final Node destination, Set<Node> visitedNodes, Function<Path, Integer> pathWeight) {
     if (destination == this) {
       return 0;
     }
@@ -35,10 +33,10 @@ public class Node {
       return UNREACHABLE;
     }
 
-    return destinations.entrySet().stream()
-                       .mapToDouble(child -> child.getKey().cost(destination, copyWithThis(visitedNodes), pathWeight) + pathWeight.apply(child))
-                       .min()
-                       .orElse(UNREACHABLE);
+    return paths.stream()
+                .mapToDouble(path -> path.weight(destination, copyWithThis(visitedNodes), pathWeight))
+                .min()
+                .orElse(UNREACHABLE);
   }
 
   private Set<Node> copyWithThis(Set<Node> list) {
@@ -52,10 +50,6 @@ public class Node {
       throw new IllegalArgumentException("Cannot reach destination");
     }
     return (int) result;
-  }
-
-  private static Integer hops(final Map.Entry<Node, Integer> nodeIntegerEntry) {
-    return 1;
   }
 
 }
