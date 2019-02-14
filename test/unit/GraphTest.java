@@ -18,17 +18,17 @@ public class GraphTest {
   Node g = new Node();
 
   {
-    b.addPathTo(a, 5);
-    b.addPathTo(c, 6);
-    b.addPathTo(f, 4);
+    b.addPathTo(a, 5, 0.5);
+    b.addPathTo(c, 6, 0.5);
+    b.addPathTo(f, 4, 0.6);
 
-    c.addPathTo(d, 7);
-    c.addPathTo(d, 1);
-    c.addPathTo(e, 8);
+    c.addPathTo(d, 7, 0.2);
+    c.addPathTo(d, 1, 0.4);
+    c.addPathTo(e, 8, 0.1);
 
-    d.addPathTo(e, 2);
+    d.addPathTo(e, 2, 0.05);
 
-    e.addPathTo(b, 3);
+    e.addPathTo(b, 3, 0.7);
   }
 
   @Test
@@ -118,7 +118,23 @@ public class GraphTest {
     assertEquals(9, b.cost(e));
     assertEquals(1, c.cost(d));
     assertEquals(3, c.cost(e));
+    assertEquals(2, d.cost(e));
     assertEquals(6, c.cost(b));
     assertEquals(10, c.cost(f));
+  }
+
+  @Test
+  void gradient() {
+    assertThrows(IllegalArgumentException.class, () -> g.gradient(a));
+    assertEquals(0, g.gradient(g));
+    assertEquals(0.5, b.gradient(a));
+    assertEquals(0.5, b.gradient(c));
+    assertEquals(0.5, b.gradient(d));
+    assertEquals(0.5, b.gradient(e));
+    assertEquals(0.2, c.gradient(d));
+    assertEquals(0.05, d.gradient(e));
+    assertEquals(0.1, c.gradient(e));
+    assertEquals(0.7, c.gradient(b));
+    assertEquals(0.7, c.gradient(f));
   }
 }
