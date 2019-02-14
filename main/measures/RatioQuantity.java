@@ -1,8 +1,8 @@
 package measures;
 
-public class IntervalQuantity<T extends BaseUnit> extends Quantity<T> {
+public class RatioQuantity<T extends BaseUnit> extends Quantity<T> {
 
-  IntervalQuantity(final double amount, final T unit) {
+  RatioQuantity(final double amount, final T unit) {
     super(amount, unit);
   }
 

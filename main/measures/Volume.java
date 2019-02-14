@@ -36,7 +36,7 @@ public class Volume extends BaseUnit {
     super(amountInBaseUnit, lowerUnit);
   }
 
-  public IntervalQuantity<Volume> s(double amount) {
-    return new IntervalQuantity<>(amount, this);
+  public RatioQuantity<Volume> s(double amount) {
+    return new RatioQuantity<>(amount, this);
   }
 }
