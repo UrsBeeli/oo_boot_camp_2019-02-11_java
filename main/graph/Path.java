@@ -3,7 +3,7 @@ package graph;
 import java.util.Set;
 import java.util.function.Function;
 
-public class Path {
+class Path {
   private final Node target;
   private final Integer cost;
 
