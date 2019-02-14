@@ -20,11 +20,17 @@ public class Node {
   }
 
   public int hopCount(Node destination) {
-    return (int)valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), FEWEST_HOPS));
+    return (int) weight(destination, FEWEST_HOPS);
   }
 
   public double cost(final Node destination) {
-    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), LEAST_COST));
+    return weight(destination, LEAST_COST);
+  }
+
+  private double weight(final Node destination, Path.WeightStrategy weightStrategy) {
+    double result = weight(destination, new HashSet<>(), weightStrategy);
+    if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
+    return result;
   }
 
   double weight(final Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
@@ -40,11 +46,6 @@ public class Node {
   private Set<Node> copyWithThis(Set<Node> list) {
     Set<Node> result = new HashSet<>(list);
     result.add(this);
-    return result;
-  }
-
-  private double valueOrThrowIfUnreachable(final double result) {
-    if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
     return result;
   }
 }
