@@ -26,12 +26,8 @@ public class Node {
   }
 
   double weight(final Node destination, Set<Node> visitedNodes, Function<Path, Integer> pathWeight) {
-    if (destination == this) {
-      return 0;
-    }
-    if (visitedNodes.contains(this)) {
-      return UNREACHABLE;
-    }
+    if (destination == this) return 0;
+    if (visitedNodes.contains(this)) return UNREACHABLE;
 
     return paths.stream()
                 .mapToDouble(path -> path.weight(destination, copyWithThis(visitedNodes), pathWeight))
@@ -46,10 +42,7 @@ public class Node {
   }
 
   private int valueOrThrowIfUnreachable(final double result) {
-    if (result == UNREACHABLE) {
-      throw new IllegalArgumentException("Cannot reach destination");
-    }
+    if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
     return (int) result;
   }
-
 }
