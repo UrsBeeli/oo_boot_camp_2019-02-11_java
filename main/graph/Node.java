@@ -11,7 +11,7 @@ public class Node {
 
   private Set<Path> paths = new HashSet<>();
 
-  public void addPathTo(final Node destination, int cost) {
+  public void addPathTo(final Node destination, double cost) {
     paths.add(new Path(destination, cost));
   }
 
@@ -20,10 +20,10 @@ public class Node {
   }
 
   public int hopCount(Node destination) {
-    return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), FEWEST_HOPS));
+    return (int)valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), FEWEST_HOPS));
   }
 
-  public int cost(final Node destination) {
+  public double cost(final Node destination) {
     return valueOrThrowIfUnreachable(weight(destination, new HashSet<>(), LEAST_COST));
   }
 
@@ -43,8 +43,8 @@ public class Node {
     return result;
   }
 
-  private int valueOrThrowIfUnreachable(final double result) {
+  private double valueOrThrowIfUnreachable(final double result) {
     if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
-    return (int) result;
+    return result;
   }
 }

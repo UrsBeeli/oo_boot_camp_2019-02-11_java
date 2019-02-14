@@ -9,9 +9,9 @@ class Path {
   static final WeightStrategy FEWEST_HOPS = ignore -> 1;
 
   private final Node target;
-  private final Integer cost;
+  private final double cost;
 
-  Path(Node target, Integer cost) {
+  Path(Node target, double cost) {
     this.target = target;
     this.cost = cost;
   }
