@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 
 public class Node {
   private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
@@ -15,33 +16,18 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return hopCount(destination, new HashSet<>()) != UNREACHABLE;
+    return cost(destination, new HashSet<>(), Node::hops) != UNREACHABLE;
   }
 
   public int hopCount(Node destination) {
-    return valueOrThrowIfUnreachable(hopCount(destination, new HashSet<>()));
+    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>(), Node::hops));
   }
 
   public int cost(final Node destination) {
-    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>()));
+    return valueOrThrowIfUnreachable(cost(destination, new HashSet<>(), Map.Entry::getValue));
   }
 
-  private double hopCount(Node destination, Set<Node> visitedNodes) {
-    if (this == destination) {
-      return 0;
-    }
-    if (visitedNodes.contains(this)) {
-      return UNREACHABLE;
-    }
-
-    return destinations.keySet().stream()
-                       .mapToDouble(child -> child.hopCount(destination, copyWithThis(visitedNodes)) + 1)
-                       .min()
-                       .orElse(UNREACHABLE);
-  }
-
-
-  public double cost(final Node destination, Set<Node> visitedNodes) {
+  private double cost(final Node destination, Set<Node> visitedNodes, Function<Map.Entry<Node, Integer>, Integer> pathWeight) {
     if (destination == this) {
       return 0;
     }
@@ -50,7 +36,7 @@ public class Node {
     }
 
     return destinations.entrySet().stream()
-                       .mapToDouble(child -> child.getKey().cost(destination, copyWithThis(visitedNodes)) + child.getValue())
+                       .mapToDouble(child -> child.getKey().cost(destination, copyWithThis(visitedNodes), pathWeight) + pathWeight.apply(child))
                        .min()
                        .orElse(UNREACHABLE);
   }
@@ -67,4 +53,9 @@ public class Node {
     }
     return (int) result;
   }
+
+  private static Integer hops(final Map.Entry<Node, Integer> nodeIntegerEntry) {
+    return 1;
+  }
+
 }
