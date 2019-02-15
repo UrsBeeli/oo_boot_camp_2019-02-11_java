@@ -3,8 +3,8 @@ package graph;
 import java.util.HashSet;
 import java.util.Set;
 
-import static graph.ReachablePath.FEWEST_HOPS;
-import static graph.ReachablePath.LEAST_COST;
+import static graph.WeightStrategy.FEWEST_HOPS;
+import static graph.WeightStrategy.LEAST_COST;
 
 public class Node {
   private static final Path UNREACHABLE = new InfinitePath();
@@ -34,13 +34,13 @@ public class Node {
     return path(destination, new HashSet<>(), LEAST_COST);
   }
 
-  private Path path(final Node destination, ReachablePath.WeightStrategy weightStrategy) {
+  private Path path(final Node destination, WeightStrategy weightStrategy) {
     final Path path = path(destination, new HashSet<>(), weightStrategy);
     if (path == UNREACHABLE) throw new IllegalArgumentException("No path found");
     return path;
   }
 
-  Path path(final Node destination, Set<Node> visitedNodes, ReachablePath.WeightStrategy weightStrategy) {
+  Path path(final Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
     if (destination == this) return new ReachablePath();
     if (visitedNodes.contains(this)) return UNREACHABLE;
 

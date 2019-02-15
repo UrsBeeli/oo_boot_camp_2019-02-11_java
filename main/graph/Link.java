@@ -12,7 +12,7 @@ public class Link {
     this.cost = cost;
   }
 
-  Path path(Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
+  Path path(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
     return target.path(destination, visitedNodes, weightStrategy).prepend(this);
   }
 
