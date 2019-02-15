@@ -38,15 +38,15 @@ public class Node {
     return path(destination, COST_COMPARATOR);
   }
 
+  public List<Path> paths(final Node destination) {
+    return paths(destination, new HashSet<>());
+  }
+
   private Path path(final Node destination, Comparator<Path> pathComparator) {
     final List<Path> paths = paths(destination, new HashSet<>());
     return paths.stream()
                 .min(pathComparator)
                 .orElseThrow(() -> new IllegalArgumentException("No path found"));
-  }
-
-  public List<Path> paths(final Node destination) {
-    return paths(destination, new HashSet<>());
   }
 
   List<Path> paths(final Node destination, Set<Node> visitedNodes) {
