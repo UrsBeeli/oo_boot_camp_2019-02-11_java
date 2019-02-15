@@ -1,25 +1,49 @@
 package graph;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
-class Path {
-  interface WeightStrategy { double weight(double childValue, double cost, double gradient); }
+import static java.util.stream.Collectors.joining;
 
-  static final WeightStrategy LEAST_COST = (childValue, cost, ignoreGradient) -> childValue + cost;
-  static final WeightStrategy FEWEST_HOPS = (childValue, ignoreCost, ignoreGradient) -> childValue + 1;
-  static final WeightStrategy HIGHEST_GRADIENT_ON_PATH_WITH_LOWEST_GRADIENT = (childValue, ignoreCost, gradient) -> Math.max(childValue, gradient);
+public class Path {
+  private List<Link> links = new ArrayList<>();
 
-  private final Node target;
-  private final double cost;
-  private final double gradient;
-
-  Path(Node target, double cost, double gradient) {
-    this.target = target;
-    this.cost = cost;
-    this.gradient = gradient;
+  public Path() {
   }
 
-  double weight(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
-    return weightStrategy.weight(target.weight(destination, visitedNodes, weightStrategy), cost, gradient);
+  public void addLink(final Link link) {
+    links.add(0, link);
+  }
+
+  int compareTo(Path other) {
+    return Double.compare(Link.totalPathLength(this.links), Link.totalPathLength(other.links));
+  }
+
+  int hops() {
+    return links.size();
+  }
+
+  double cost() {
+    return Link.totalPathLength(links);
+  }
+
+  @Override
+  public boolean equals(final Object other) {
+    if (this == other) return true;
+    if (other == null || getClass() != other.getClass()) return false;
+    final Path otherPath = (Path) other;
+    return Objects.equals(links, otherPath.links);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(links);
+  }
+
+  @Override
+  public String toString() {
+    return "Path: ["+links.stream().map(Link::toString).collect(joining("]["))+"]";
   }
 }

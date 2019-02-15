@@ -1,19 +1,26 @@
 package graph;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
-import static graph.Path.FEWEST_HOPS;
-import static graph.Path.LEAST_COST;
-import static graph.Path.HIGHEST_GRADIENT_ON_PATH_WITH_LOWEST_GRADIENT;
+import static graph.Link.FEWEST_HOPS;
+import static graph.Link.LEAST_COST;
 
 public class Node {
   private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
 
-  private Set<Path> paths = new HashSet<>();
+  private final String label;
+  private Set<Link> links = new HashSet<>();
 
-  public void addPathTo(final Node destination, double cost, double gradient) {
-    paths.add(new Path(destination, cost, gradient));
+  public Node(final String label) {
+    this.label = label;
+  }
+
+  public void addPathTo(final Node destination, double cost) {
+    links.add(new Link(destination, cost));
   }
 
   public boolean canReach(final Node destination) {
@@ -28,22 +35,18 @@ public class Node {
     return weight(destination, LEAST_COST);
   }
 
-  public double gradient(final Node destination) {
-    return weight(destination, HIGHEST_GRADIENT_ON_PATH_WITH_LOWEST_GRADIENT);
-  }
-
-  private double weight(final Node destination, Path.WeightStrategy weightStrategy) {
+  private double weight(final Node destination, Link.WeightStrategy weightStrategy) {
     double result = weight(destination, new HashSet<>(), weightStrategy);
     if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
     return result;
   }
 
-  double weight(final Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
+  double weight(final Node destination, Set<Node> visitedNodes, Link.WeightStrategy weightStrategy) {
     if (destination == this) return 0;
     if (visitedNodes.contains(this)) return UNREACHABLE;
 
-    return paths.stream()
-                .mapToDouble(path -> path.weight(destination, copyWithThis(visitedNodes), weightStrategy))
+    return links.stream()
+                .mapToDouble(link -> link.weight(destination, copyWithThis(visitedNodes), weightStrategy))
                 .min()
                 .orElse(UNREACHABLE);
   }
@@ -52,5 +55,28 @@ public class Node {
     Set<Node> result = new HashSet<>(list);
     result.add(this);
     return result;
+  }
+
+  public Path path(final Node destination) {
+    final Path path = path(destination, new HashSet<>());
+    if (path == null) throw new IllegalArgumentException("No path found");
+    return path;
+  }
+
+  Path path(final Node destination, Set<Node> visitedNodes) {
+    if (destination == this) return new Path();
+    if (visitedNodes.contains(this)) return null;
+
+    return links.stream()
+                .map(link -> link.path(destination, copyWithThis(visitedNodes), this))
+                .filter(Objects::nonNull)
+                .min(Path::compareTo)
+                .orElse(null);
+
+  }
+
+  @Override
+  public String toString() {
+    return "Node ["+label+"]";
   }
 }

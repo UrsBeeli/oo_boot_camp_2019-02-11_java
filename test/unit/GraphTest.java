@@ -1,34 +1,40 @@
 package unit;
 
+import graph.Link;
 import graph.Node;
+import graph.Path;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GraphTest {
-  Node a = new Node();
-  Node b = new Node();
-  Node c = new Node();
-  Node d = new Node();
-  Node e = new Node();
-  Node f = new Node();
-  Node g = new Node();
+  Node a = new Node("A");
+  Node b = new Node("B");
+  Node c = new Node("C");
+  Node d = new Node("D");
+  Node e = new Node("E");
+  Node f = new Node("F");
+  Node g = new Node("G");
 
   {
-    b.addPathTo(a, 5, 0.5);
-    b.addPathTo(c, 6, 0.5);
-    b.addPathTo(f, 4, 0.6);
+    b.addPathTo(a, 5);
+    b.addPathTo(c, 6);
+    b.addPathTo(f, 4);
 
-    c.addPathTo(d, 7, 0.2);
-    c.addPathTo(d, 1, 0.4);
-    c.addPathTo(e, 8, 0.1);
+    c.addPathTo(d, 7);
+    c.addPathTo(d, 1);
+    c.addPathTo(e, 8);
 
-    d.addPathTo(e, 2, 0.05);
+    d.addPathTo(e, 2);
 
-    e.addPathTo(b, 3, 0.7);
+    e.addPathTo(b, 3);
+
   }
 
   @Test
@@ -118,23 +124,33 @@ public class GraphTest {
     assertEquals(9, b.cost(e));
     assertEquals(1, c.cost(d));
     assertEquals(3, c.cost(e));
-    assertEquals(2, d.cost(e));
     assertEquals(6, c.cost(b));
     assertEquals(10, c.cost(f));
   }
 
   @Test
-  void gradient() {
-    assertThrows(IllegalArgumentException.class, () -> g.gradient(a));
-    assertEquals(0, g.gradient(g));
-    assertEquals(0.5, b.gradient(a));
-    assertEquals(0.5, b.gradient(c));
-    assertEquals(0.5, b.gradient(d));
-    assertEquals(0.5, b.gradient(e));
-    assertEquals(0.2, c.gradient(d));
-    assertEquals(0.05, d.gradient(e));
-    assertEquals(0.1, c.gradient(e));
-    assertEquals(0.7, c.gradient(b));
-    assertEquals(0.7, c.gradient(f));
+  void path() {
+    Path aa = new Path();
+    Path ba = buildPath(new Link(a, 5));
+    Path bc = buildPath(new Link(c, 6));
+    Path bd = buildPath(new Link(c, 6), new Link(d, 1));
+    Path ce = buildPath(new Link(d, 1), new Link(e, 2));
+    Path cf = buildPath(new Link(d, 1), new Link(e, 2), new Link(b, 3), new Link(f, 4));
+
+    assertThrows(IllegalArgumentException.class, () -> g.path(a));
+    assertEquals(aa, a.path(a));
+    assertEquals(ba, b.path(a));
+    assertEquals(bc, b.path(c));
+    assertEquals(bd, b.path(d));
+    assertEquals(ce, c.path(e));
+    assertEquals(cf, c.path(f));
+  }
+
+  private Path buildPath(Link... links) {
+    Path result = new Path();
+    for (int i=links.length-1; i>=0; --i) {
+      result.addLink(links[i]);
+    }
+    return result;
   }
 }
