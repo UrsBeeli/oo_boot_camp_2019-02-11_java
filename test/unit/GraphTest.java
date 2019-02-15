@@ -4,6 +4,8 @@ import graph.Node;
 import graph.Path;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -122,7 +124,38 @@ class GraphTest {
   void path() {
     assertThrows(IllegalArgumentException.class, () -> g.path(a));
     final Path path = c.path(f);
-    assertEquals(4, path.hops());
+    assertEquals(4, path.hopCount());
     assertEquals(10, path.cost());
+  }
+
+  @Test
+  void paths() {
+    assertEquals(0, g.paths(a).size());
+
+    List<Path> paths = g.paths(g);
+    assertEquals(1, paths.size());
+    assertExistsPath(0, 0, paths);
+
+    paths = c.paths(d);
+    assertEquals(2, paths.size());
+    assertExistsPath(1, 1, paths);
+    assertExistsPath(1, 7, paths);
+
+    paths = c.paths(e);
+    assertEquals(3, paths.size());
+    assertExistsPath(1, 8, paths);
+    assertExistsPath(2, 3, paths);
+    assertExistsPath(2, 9, paths);
+
+    paths = c.paths(f);
+    assertEquals(3, paths.size());
+    assertExistsPath(3, 15, paths);
+    assertExistsPath(4, 10, paths);
+    assertExistsPath(4, 16, paths);
+  }
+
+  private void assertExistsPath(final int hopCount, final double cost, final List<Path> paths) {
+    assertTrue(paths.stream()
+         .anyMatch(path -> path.cost() == cost && path.hopCount() == hopCount));
   }
 }

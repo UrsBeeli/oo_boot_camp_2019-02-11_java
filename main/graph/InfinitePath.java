@@ -5,7 +5,7 @@ public class InfinitePath extends Path {
   }
 
   @Override
-  public int hops() {
+  public int hopCount() {
     return Integer.MAX_VALUE;
   }
 

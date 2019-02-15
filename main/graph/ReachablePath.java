@@ -16,7 +16,7 @@ public class ReachablePath extends Path {
   }
 
   @Override
-  public int hops() {
+  public int hopCount() {
     return links.size();
   }
 
