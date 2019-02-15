@@ -68,11 +68,10 @@ public class Node {
     if (visitedNodes.contains(this)) return null;
 
     return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes), this))
+                .map(link -> link.path(destination, copyWithThis(visitedNodes)))
                 .filter(Objects::nonNull)
                 .min(Path::compareTo)
                 .orElse(null);
-
   }
 
   @Override

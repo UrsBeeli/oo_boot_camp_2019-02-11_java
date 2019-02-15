@@ -3,7 +3,6 @@ package graph;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.joining;
 
@@ -13,19 +12,19 @@ public class Path {
   public Path() {
   }
 
-  public void addLink(final Link link) {
+  public void prepend(final Link link) {
     links.add(0, link);
   }
 
   int compareTo(Path other) {
-    return Double.compare(Link.totalPathLength(this.links), Link.totalPathLength(other.links));
+    return Double.compare(this.cost(), other.cost());
   }
 
-  int hops() {
+  public int hops() {
     return links.size();
   }
 
-  double cost() {
+  public double cost() {
     return Link.totalPathLength(links);
   }
 

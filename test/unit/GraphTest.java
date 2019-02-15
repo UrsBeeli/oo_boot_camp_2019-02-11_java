@@ -5,8 +5,6 @@ import graph.Node;
 import graph.Path;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -149,7 +147,7 @@ public class GraphTest {
   private Path buildPath(Link... links) {
     Path result = new Path();
     for (int i=links.length-1; i>=0; --i) {
-      result.addLink(links[i]);
+      result.prepend(links[i]);
     }
     return result;
   }

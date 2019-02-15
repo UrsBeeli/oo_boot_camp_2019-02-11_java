@@ -22,12 +22,12 @@ public class Link {
     return target.weight(destination, visitedNodes, weightStrategy) + weightStrategy.weight(cost);
   }
 
-  Path path(Node destination, Set<Node> visitedNodes, Node parent) {
-    Path childPath = target.path(destination, visitedNodes);
-    if (childPath != null) {
-      childPath.addLink(this);
+  Path path(Node destination, Set<Node> visitedNodes) {
+    Path result = target.path(destination, visitedNodes);
+    if (result != null) {
+      result.prepend(this);
     }
-    return childPath;
+    return result;
   }
 
   static double totalPathLength(final List<Link> links) {
