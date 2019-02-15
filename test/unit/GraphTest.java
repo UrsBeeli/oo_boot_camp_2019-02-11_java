@@ -159,4 +159,45 @@ class GraphTest {
     assertTrue(paths.stream()
          .anyMatch(path -> path.cost() == cost && path.hopCount() == hopCount));
   }
+
+  @Test
+  void allPaths() {
+    List<Path> paths = a.paths();
+    assertEquals(1, paths.size());
+    assertExistsPath(0, 0, paths);
+
+    paths = g.paths();
+    assertEquals(1, paths.size());
+    assertExistsPath(0, 0, paths);
+
+    paths = b.paths();
+    assertEquals(9, paths.size());
+    assertExistsPath(0,0 , paths); // BB
+    assertExistsPath(1, 5, paths); // BA
+    assertExistsPath(1, 4, paths); // BF
+    assertExistsPath(1, 6, paths); // BC
+    assertExistsPath(2, 13, paths); // BCD
+    assertExistsPath(2, 7, paths); // BCD
+    assertExistsPath(2,14 , paths); // BCE
+    assertExistsPath(3, 9, paths); // BCDE
+    assertExistsPath(3, 15, paths); // BCDE
+
+    paths = c.paths();
+    assertEquals(15, paths.size());
+    assertExistsPath(0, 0, paths); // CC
+    assertExistsPath(1, 1, paths); // CD
+    assertExistsPath(1, 7, paths); // CD
+    assertExistsPath(1, 8, paths); // CE
+    assertExistsPath(2, 3, paths); // CDE
+    assertExistsPath(2, 9, paths); // CDE
+    assertExistsPath(2, 11, paths); // CEB
+    assertExistsPath(3, 16, paths); // CEBA
+    assertExistsPath(3, 15, paths); // CEBF
+    assertExistsPath(3, 6, paths); // CDEB
+    assertExistsPath(3, 12, paths); // CDEB
+    assertExistsPath(4, 11, paths); // CDEBA
+    assertExistsPath(4, 17, paths); // CDEBA
+    assertExistsPath(4, 10, paths); // CDEBF
+    assertExistsPath(4, 16, paths); // CDEBF
+  }
 }

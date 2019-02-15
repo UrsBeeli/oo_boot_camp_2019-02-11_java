@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 class Link {
   private final Node target;
   private final double cost;
@@ -17,6 +15,10 @@ class Link {
 
   Stream<Path> paths(Node destination, Set<Node> visitedNodes) {
     return target.paths(destination, visitedNodes).map(path -> path.prepend(this));
+  }
+
+  Stream<Path> paths(Set<Node> visitedNodes) {
+    return target.paths(visitedNodes).map(path -> path.prepend(this));
   }
 
   static double totalPathLength(final List<Link> links) {

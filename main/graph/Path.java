@@ -11,6 +11,7 @@ public class Path {
   private List<Link> links = new ArrayList<>();
 
   Path() {
+    // restrict visibility
   }
 
   Path prepend(final Link link) {

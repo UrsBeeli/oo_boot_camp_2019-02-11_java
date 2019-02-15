@@ -19,7 +19,7 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return paths(destination, new HashSet<>()).count() > 0;
+    return !paths(destination).isEmpty();
   }
 
   public int hopCount(Node destination) {
@@ -38,6 +38,10 @@ public class Node {
     return paths(destination, new HashSet<>()).collect(toList());
   }
 
+  public List<Path> paths() {
+    return paths(new HashSet<>()).collect(toList());
+  }
+
   private Path path(final Node destination, Comparator<Path> pathComparator) {
     return paths(destination, new HashSet<>())
         .min(pathComparator)
@@ -49,6 +53,15 @@ public class Node {
     if (visitedNodes.contains(this)) return Stream.empty();
 
     return links.stream().flatMap(link -> link.paths(destination, copyWithThis(visitedNodes)));
+  }
+
+  Stream<Path> paths(Set<Node> visitedNodes) {
+    if (visitedNodes.contains(this)) return Stream.empty();
+
+    return Stream.concat(
+        Stream.of(new Path()),
+        links.stream().flatMap(link -> link.paths(copyWithThis(visitedNodes)))
+    );
   }
 
   private Set<Node> copyWithThis(Set<Node> list) {
