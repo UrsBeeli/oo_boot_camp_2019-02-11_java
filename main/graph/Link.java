@@ -3,7 +3,7 @@ package graph;
 import java.util.List;
 import java.util.Set;
 
-public class Link {
+class Link {
   private final Node target;
   private final double cost;
 

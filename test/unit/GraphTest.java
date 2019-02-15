@@ -1,22 +1,22 @@
 package unit;
 
 import graph.Node;
+import graph.Path;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class GraphTest {
-  Node a = new Node();
-  Node b = new Node();
-  Node c = new Node();
-  Node d = new Node();
-  Node e = new Node();
-  Node f = new Node();
-  Node g = new Node();
+class GraphTest {
+  private Node a = new Node();
+  private Node b = new Node();
+  private Node c = new Node();
+  private Node d = new Node();
+  private Node e = new Node();
+  private Node f = new Node();
+  private Node g = new Node();
 
   {
     b.addPathTo(a, 5);
@@ -116,5 +116,13 @@ public class GraphTest {
     assertEquals(3, c.cost(e));
     assertEquals(6, c.cost(b));
     assertEquals(10, c.cost(f));
+  }
+
+  @Test
+  void path() {
+    assertThrows(IllegalArgumentException.class, () -> g.path(a));
+    final Path path = c.path(f);
+    assertEquals(4, path.hops());
+    assertEquals(10, path.cost());
   }
 }

@@ -5,7 +5,7 @@ public abstract class Path {
     return this;
   }
 
-  abstract int hops();
+  public abstract int hops();
 
-  abstract double cost();
+  public abstract double cost();
 }

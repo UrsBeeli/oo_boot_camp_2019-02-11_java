@@ -31,7 +31,7 @@ public class Node {
   }
 
   public Path path(final Node destination) {
-    return path(destination, new HashSet<>(), LEAST_COST);
+    return path(destination, LEAST_COST);
   }
 
   private Path path(final Node destination, WeightStrategy weightStrategy) {
