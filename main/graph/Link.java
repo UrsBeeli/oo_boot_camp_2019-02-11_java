@@ -1,5 +1,6 @@
 package graph;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ class Link {
     this.cost = cost;
   }
 
-  Path path(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
+  Path path(Node destination, Set<Node> visitedNodes, Comparator<Path> weightStrategy) {
     return target.path(destination, visitedNodes, weightStrategy).prepend(this);
   }
 

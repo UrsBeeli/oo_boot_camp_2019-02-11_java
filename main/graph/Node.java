@@ -1,10 +1,11 @@
 package graph;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-import static graph.WeightStrategy.FEWEST_HOPS;
-import static graph.WeightStrategy.LEAST_COST;
+import static graph.Path.HOP_COUNT_COMPARATOR;
+import static graph.Path.COST_COMPARATOR;
 
 public class Node {
   private static final Path UNREACHABLE = new InfinitePath();
@@ -19,34 +20,34 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return path(destination, new HashSet<>(), FEWEST_HOPS) != UNREACHABLE;
+    return path(destination, new HashSet<>(), HOP_COUNT_COMPARATOR) != UNREACHABLE;
   }
 
   public int hopCount(Node destination) {
-    return path(destination, FEWEST_HOPS).hops();
+    return path(destination, HOP_COUNT_COMPARATOR).hops();
   }
 
   public double cost(final Node destination) {
-    return path(destination, LEAST_COST).cost();
+    return path(destination, COST_COMPARATOR).cost();
   }
 
   public Path path(final Node destination) {
-    return path(destination, LEAST_COST);
+    return path(destination, COST_COMPARATOR);
   }
 
-  private Path path(final Node destination, WeightStrategy weightStrategy) {
-    final Path path = path(destination, new HashSet<>(), weightStrategy);
+  private Path path(final Node destination, Comparator<Path> pathComparator) {
+    final Path path = path(destination, new HashSet<>(), pathComparator);
     if (path == UNREACHABLE) throw new IllegalArgumentException("No path found");
     return path;
   }
 
-  Path path(final Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
+  Path path(final Node destination, Set<Node> visitedNodes, Comparator<Path> pathComparator) {
     if (destination == this) return new ReachablePath();
     if (visitedNodes.contains(this)) return UNREACHABLE;
 
     return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes), weightStrategy))
-                .min(weightStrategy::compareTo)
+                .map(link -> link.path(destination, copyWithThis(visitedNodes), pathComparator))
+                .min(pathComparator)
                 .orElse(UNREACHABLE);
   }
 
