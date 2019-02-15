@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static graph.Link.FEWEST_HOPS;
-import static graph.Link.LEAST_COST;
+import static graph.Path.FEWEST_HOPS;
+import static graph.Path.LEAST_COST;
 
 public class Node {
+  private static final UnreachablePath UNREACHABLE = new UnreachablePath();
   private final String label;
   private Set<Link> links = new HashSet<>();
 
@@ -22,7 +23,7 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return path(destination, new HashSet<>(), FEWEST_HOPS) != null;
+    return path(destination, new HashSet<>(), FEWEST_HOPS) != UNREACHABLE;
   }
 
   public int hopCount(Node destination) {
@@ -40,26 +41,23 @@ public class Node {
   }
 
   public Path path(final Node destination) {
-    final Path path = path(destination, new HashSet<>(), LEAST_COST);
-    if (path == null) throw new IllegalArgumentException("No path found");
-    return path;
+    return path(destination, new HashSet<>(), LEAST_COST);
   }
 
-  private Path path(final Node destination, Link.WeightStrategy weightStrategy) {
+  private Path path(final Node destination, Path.WeightStrategy weightStrategy) {
     final Path path = path(destination, new HashSet<>(), weightStrategy);
-    if (path == null) throw new IllegalArgumentException("No path found");
+    if (path == UNREACHABLE) throw new IllegalArgumentException("No path found");
     return path;
   }
 
-  Path path(final Node destination, Set<Node> visitedNodes, Link.WeightStrategy weightStrategy) {
+  Path path(final Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
     if (destination == this) return new Path(weightStrategy);
-    if (visitedNodes.contains(this)) return null;
+    if (visitedNodes.contains(this)) return UNREACHABLE;
 
     return links.stream()
                 .map(link -> link.path(destination, copyWithThis(visitedNodes), weightStrategy))
-                .filter(Objects::nonNull)
                 .min(Path::compareTo)
-                .orElse(null);
+                .orElse(UNREACHABLE);
   }
 
   @Override
