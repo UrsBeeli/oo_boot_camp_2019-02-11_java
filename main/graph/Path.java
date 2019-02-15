@@ -7,9 +7,11 @@ import java.util.Objects;
 import static java.util.stream.Collectors.joining;
 
 public class Path {
+  private final Link.WeightStrategy weightStrategy;
   private List<Link> links = new ArrayList<>();
 
-  public Path() {
+  public Path(Link.WeightStrategy weightStrategy) {
+    this.weightStrategy = weightStrategy;
   }
 
   public void prepend(final Link link) {
@@ -17,7 +19,7 @@ public class Path {
   }
 
   int compareTo(Path other) {
-    return Double.compare(this.cost(), other.cost());
+    return Double.compare(weightStrategy.weight(this.links), weightStrategy.weight(other.links));
   }
 
   public int hops() {

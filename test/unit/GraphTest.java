@@ -125,30 +125,4 @@ public class GraphTest {
     assertEquals(6, c.cost(b));
     assertEquals(10, c.cost(f));
   }
-
-  @Test
-  void path() {
-    Path aa = new Path();
-    Path ba = buildPath(new Link(a, 5));
-    Path bc = buildPath(new Link(c, 6));
-    Path bd = buildPath(new Link(c, 6), new Link(d, 1));
-    Path ce = buildPath(new Link(d, 1), new Link(e, 2));
-    Path cf = buildPath(new Link(d, 1), new Link(e, 2), new Link(b, 3), new Link(f, 4));
-
-    assertThrows(IllegalArgumentException.class, () -> g.path(a));
-    assertEquals(aa, a.path(a));
-    assertEquals(ba, b.path(a));
-    assertEquals(bc, b.path(c));
-    assertEquals(bd, b.path(d));
-    assertEquals(ce, c.path(e));
-    assertEquals(cf, c.path(f));
-  }
-
-  private Path buildPath(Link... links) {
-    Path result = new Path();
-    for (int i=links.length-1; i>=0; --i) {
-      result.prepend(links[i]);
-    }
-    return result;
-  }
 }

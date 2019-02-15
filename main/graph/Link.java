@@ -5,10 +5,10 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Link {
-  interface WeightStrategy { double weight(double cost); }
+  interface WeightStrategy { double weight(List<Link> link); }
 
-  static final WeightStrategy LEAST_COST = cost -> cost;
-  static final WeightStrategy FEWEST_HOPS = ignore -> 1;
+  static final WeightStrategy LEAST_COST = links -> totalPathLength(links);
+  static final WeightStrategy FEWEST_HOPS = links -> links.size();
 
   private final Node target;
   private final double cost;
@@ -18,12 +18,8 @@ public class Link {
     this.cost = cost;
   }
 
-  double weight(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
-    return target.weight(destination, visitedNodes, weightStrategy) + weightStrategy.weight(cost);
-  }
-
-  Path path(Node destination, Set<Node> visitedNodes) {
-    Path result = target.path(destination, visitedNodes);
+  Path path(Node destination, Set<Node> visitedNodes, WeightStrategy weightStrategy) {
+    Path result = target.path(destination, visitedNodes, weightStrategy);
     if (result != null) {
       result.prepend(this);
     }

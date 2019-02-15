@@ -10,8 +10,6 @@ import static graph.Link.FEWEST_HOPS;
 import static graph.Link.LEAST_COST;
 
 public class Node {
-  private static final double UNREACHABLE = Double.POSITIVE_INFINITY;
-
   private final String label;
   private Set<Link> links = new HashSet<>();
 
@@ -24,31 +22,15 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return weight(destination, new HashSet<>(), FEWEST_HOPS) != UNREACHABLE;
+    return path(destination, new HashSet<>(), FEWEST_HOPS) != null;
   }
 
   public int hopCount(Node destination) {
-    return (int) weight(destination, FEWEST_HOPS);
+    return path(destination, FEWEST_HOPS).hops();
   }
 
   public double cost(final Node destination) {
-    return weight(destination, LEAST_COST);
-  }
-
-  private double weight(final Node destination, Link.WeightStrategy weightStrategy) {
-    double result = weight(destination, new HashSet<>(), weightStrategy);
-    if (result == UNREACHABLE) throw new IllegalArgumentException("Cannot reach destination");
-    return result;
-  }
-
-  double weight(final Node destination, Set<Node> visitedNodes, Link.WeightStrategy weightStrategy) {
-    if (destination == this) return 0;
-    if (visitedNodes.contains(this)) return UNREACHABLE;
-
-    return links.stream()
-                .mapToDouble(link -> link.weight(destination, copyWithThis(visitedNodes), weightStrategy))
-                .min()
-                .orElse(UNREACHABLE);
+    return path(destination, LEAST_COST).cost();
   }
 
   private Set<Node> copyWithThis(Set<Node> list) {
@@ -58,17 +40,23 @@ public class Node {
   }
 
   public Path path(final Node destination) {
-    final Path path = path(destination, new HashSet<>());
+    final Path path = path(destination, new HashSet<>(), LEAST_COST);
     if (path == null) throw new IllegalArgumentException("No path found");
     return path;
   }
 
-  Path path(final Node destination, Set<Node> visitedNodes) {
-    if (destination == this) return new Path();
+  private Path path(final Node destination, Link.WeightStrategy weightStrategy) {
+    final Path path = path(destination, new HashSet<>(), weightStrategy);
+    if (path == null) throw new IllegalArgumentException("No path found");
+    return path;
+  }
+
+  Path path(final Node destination, Set<Node> visitedNodes, Link.WeightStrategy weightStrategy) {
+    if (destination == this) return new Path(weightStrategy);
     if (visitedNodes.contains(this)) return null;
 
     return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes)))
+                .map(link -> link.path(destination, copyWithThis(visitedNodes), weightStrategy))
                 .filter(Objects::nonNull)
                 .min(Path::compareTo)
                 .orElse(null);
