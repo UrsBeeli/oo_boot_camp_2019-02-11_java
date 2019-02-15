@@ -50,12 +50,8 @@ public class Node {
   }
 
   List<Path> paths(final Node destination, Set<Node> visitedNodes) {
-    if (destination == this) {
-      return newListWithReachablePath();
-    }
-    if (visitedNodes.contains(this)) {
-      return new ArrayList<>();
-    }
+    if (destination == this) return newListWithReachablePath();
+    if (visitedNodes.contains(this)) return new ArrayList<>();
 
     return links.stream()
                 .map(link -> link.paths(destination, copyWithThis(visitedNodes)))
@@ -65,7 +61,7 @@ public class Node {
 
   private List<Path> newListWithReachablePath() {
     List<Path> result = new ArrayList<>();
-    result.add(new ReachablePath());
+    result.add(new Path());
     return result;
   }
 

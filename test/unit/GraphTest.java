@@ -131,6 +131,7 @@ class GraphTest {
   @Test
   void paths() {
     assertEquals(0, g.paths(a).size());
+    assertEquals(0, b.paths(g).size());
 
     List<Path> paths = g.paths(g);
     assertEquals(1, paths.size());

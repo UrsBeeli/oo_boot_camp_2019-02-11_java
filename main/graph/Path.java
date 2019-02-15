@@ -1,16 +1,28 @@
 package graph;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
-public abstract class Path {
+public class Path {
   static final Comparator<Path> COST_COMPARATOR = Comparator.comparingDouble(Path::cost);
   static final Comparator<Path> HOP_COUNT_COMPARATOR = Comparator.comparingInt(Path::hopCount);
 
+  private List<Link> links = new ArrayList<>();
+
+  Path() {
+  }
+
   Path prepend(final Link link) {
+    links.add(0, link);
     return this;
   }
 
-  public abstract int hopCount();
+  public int hopCount() {
+    return links.size();
+  }
 
-  public abstract double cost();
+  public double cost() {
+    return Link.totalPathLength(links);
+  }
 }
