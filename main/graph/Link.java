@@ -2,6 +2,7 @@ package graph;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -14,10 +15,8 @@ class Link {
     this.cost = cost;
   }
 
-  List<Path> paths(Node destination, Set<Node> visitedNodes) {
-    return target.paths(destination, visitedNodes).stream()
-                 .map(path -> path.prepend(this))
-                 .collect(toList());
+  Stream<Path> paths(Node destination, Set<Node> visitedNodes) {
+    return target.paths(destination, visitedNodes).map(path -> path.prepend(this));
   }
 
   static double totalPathLength(final List<Link> links) {

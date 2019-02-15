@@ -1,11 +1,10 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static graph.Path.COST_COMPARATOR;
 import static graph.Path.HOP_COUNT_COMPARATOR;
@@ -20,7 +19,7 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return !paths(destination, new HashSet<>()).isEmpty();
+    return paths(destination, new HashSet<>()).count() > 0;
   }
 
   public int hopCount(Node destination) {
@@ -36,29 +35,20 @@ public class Node {
   }
 
   public List<Path> paths(final Node destination) {
-    return paths(destination, new HashSet<>());
+    return paths(destination, new HashSet<>()).collect(toList());
   }
 
   private Path path(final Node destination, Comparator<Path> pathComparator) {
-    return paths(destination, new HashSet<>()).stream()
-                                              .min(pathComparator)
-                                              .orElseThrow(() -> new IllegalArgumentException("No path found"));
+    return paths(destination, new HashSet<>())
+        .min(pathComparator)
+        .orElseThrow(() -> new IllegalArgumentException("No path found"));
   }
 
-  List<Path> paths(final Node destination, Set<Node> visitedNodes) {
-    if (destination == this) return newListWithReachablePath();
-    if (visitedNodes.contains(this)) return new ArrayList<>();
+  Stream<Path> paths(final Node destination, Set<Node> visitedNodes) {
+    if (destination == this) return Stream.of(new Path());
+    if (visitedNodes.contains(this)) return Stream.empty();
 
-    return links.stream()
-                .map(link -> link.paths(destination, copyWithThis(visitedNodes)))
-                .flatMap(Collection::stream)
-                .collect(toList());
-  }
-
-  private List<Path> newListWithReachablePath() {
-    List<Path> result = new ArrayList<>();
-    result.add(new Path());
-    return result;
+    return links.stream().flatMap(link -> link.paths(destination, copyWithThis(visitedNodes)));
   }
 
   private Set<Node> copyWithThis(Set<Node> list) {
