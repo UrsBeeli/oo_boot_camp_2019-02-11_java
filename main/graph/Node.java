@@ -12,7 +12,6 @@ import static graph.Path.HOP_COUNT_COMPARATOR;
 import static java.util.stream.Collectors.toList;
 
 public class Node {
-  private static final Path UNREACHABLE = new InfinitePath();
 
   private Set<Link> links = new HashSet<>();
 
@@ -24,7 +23,7 @@ public class Node {
   }
 
   public boolean canReach(final Node destination) {
-    return path(destination, new HashSet<>(), HOP_COUNT_COMPARATOR) != UNREACHABLE;
+    return !paths(destination, new HashSet<>()).isEmpty();
   }
 
   public int hopCount(Node destination) {
@@ -40,25 +39,10 @@ public class Node {
   }
 
   private Path path(final Node destination, Comparator<Path> pathComparator) {
-    final Path path = path(destination, new HashSet<>(), pathComparator);
-    if (path == UNREACHABLE) {
-      throw new IllegalArgumentException("No path found");
-    }
-    return path;
-  }
-
-  Path path(final Node destination, Set<Node> visitedNodes, Comparator<Path> pathComparator) {
-    if (destination == this) {
-      return new ReachablePath();
-    }
-    if (visitedNodes.contains(this)) {
-      return UNREACHABLE;
-    }
-
-    return links.stream()
-                .map(link -> link.path(destination, copyWithThis(visitedNodes), pathComparator))
+    final List<Path> paths = paths(destination, new HashSet<>());
+    return paths.stream()
                 .min(pathComparator)
-                .orElse(UNREACHABLE);
+                .orElseThrow(() -> new IllegalArgumentException("No path found"));
   }
 
   public List<Path> paths(final Node destination) {
