@@ -16,8 +16,8 @@ class Link {
 
   List<Path> paths(Node destination, Set<Node> visitedNodes) {
     return target.paths(destination, visitedNodes).stream()
-      .map(path -> path.prepend(this))
-        .collect(toList());
+                 .map(path -> path.prepend(this))
+                 .collect(toList());
   }
 
   static double totalPathLength(final List<Link> links) {

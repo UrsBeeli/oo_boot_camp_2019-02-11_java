@@ -15,9 +15,6 @@ public class Node {
 
   private Set<Link> links = new HashSet<>();
 
-  public Node() {
-  }
-
   public void addPathTo(final Node destination, double cost) {
     links.add(new Link(destination, cost));
   }
@@ -43,10 +40,9 @@ public class Node {
   }
 
   private Path path(final Node destination, Comparator<Path> pathComparator) {
-    final List<Path> paths = paths(destination, new HashSet<>());
-    return paths.stream()
-                .min(pathComparator)
-                .orElseThrow(() -> new IllegalArgumentException("No path found"));
+    return paths(destination, new HashSet<>()).stream()
+                                              .min(pathComparator)
+                                              .orElseThrow(() -> new IllegalArgumentException("No path found"));
   }
 
   List<Path> paths(final Node destination, Set<Node> visitedNodes) {
@@ -64,7 +60,6 @@ public class Node {
     result.add(new Path());
     return result;
   }
-
 
   private Set<Node> copyWithThis(Set<Node> list) {
     Set<Node> result = new HashSet<>(list);
