@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/main/measures/Quantity.java" line="39" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3c6b7e5b-bd2a-4c7c-80ca-21a5bfd4d971" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/rectangle/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/rectangle/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/unit/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/RectangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/finder/Comparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/finder/Comparable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/measures/Quantity.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/measures/Quantity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/probability/Probability.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/probability/Probability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/rectangle/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/rectangle/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/unit/SortingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/SortingTest.java" afterDir="false" />
     </list>
+    <list id="801043dc-25fc-45f6-9793-8c74e10ac911" name="Not interested" comment="meta information" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,33 +21,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/unit/RectangleTest.java">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main/measures/Quantity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="370">
+              <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#306#307#0" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#491#492#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/rectangle/Rectangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="14" column="91" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="14" selection-end-column="91" />
-              <folding>
-                <element signature="e#435#436#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#505#506#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
+                <element signature="e#696#697#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1259#1260#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,35 +43,139 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Unit.TEA_SPOON</find>
+      <find>3</find>
+      <find>new Measure(</find>
+      <find>this./</find>
+      <find>*</find>
+      <find>Unit.</find>
+      <find>Unit.convert</find>
+      <find>_SPOON</find>
+      <find>AbstractMeasure</find>
+      <find>QUART</find>
+      <find>AbstractUnit</find>
+      <find>DistanceUnit</find>
+      <find>VolumeUnit</find>
+      <find>AreaUnit</find>
+      <find>, UnitType.VOLUME</find>
+      <find>, UnitType.DISTANCE</find>
+      <find>, UnitType.AREA</find>
+      <find>VolumeMeasure</find>
+      <find>DistanceMeasure</find>
+      <find>Volume</find>
+      <find>cup</find>
+      <find>Length</find>
+      <find>BaseUnit</find>
+      <find>mixed</find>
+      <find>new Square</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>targetUnit</replace>
+      <replace>value *</replace>
+      <replace>Constants.</replace>
+      <replace>/</replace>
+      <replace>unit.convert</replace>
+      <replace>SPOON</replace>
+      <replace>VolumeMeasure</replace>
+      <replace>DistanceMeasure</replace>
+      <replace>MILE</replace>
+      <replace>VolumeUnit</replace>
+      <replace>AreaUnit</replace>
+      <replace>Unit</replace>
+      <replace>Quantity</replace>
+      <replace>Volume</replace>
+      <replace>Length</replace>
+      <replace>Area</replace>
+      <replace>Temperature</replace>
+      <replace>Rectangle.square</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="8fa8098ffdfcd09d7ba043c6b56ae323b0bf5557" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/main/measures/Measure.java" />
+        <option value="$PROJECT_DIR$/main/measures/CookingMeasure.java" />
+        <option value="$PROJECT_DIR$/test/unit/MeasureTest.java" />
+        <option value="$PROJECT_DIR$/main/measures/VolumeMeasure.java" />
+        <option value="$PROJECT_DIR$/test/unit/VolumeUnitTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/DIstanceMeasureTest.java" />
+        <option value="$PROJECT_DIR$/main/measures/AbstractUnit.java" />
+        <option value="$PROJECT_DIR$/main/measures/DistanceUnit.java" />
+        <option value="$PROJECT_DIR$/main/measures/AreaMeasure.java" />
+        <option value="$PROJECT_DIR$/main/measures/AbstractMeasure.java" />
+        <option value="$PROJECT_DIR$/main/measures/DistanceMeasure.java" />
+        <option value="$PROJECT_DIR$/main/measures/UnitType.java" />
+        <option value="$PROJECT_DIR$/main/measures/VolumeUnit.java" />
+        <option value="$PROJECT_DIR$/main/measures/AreaUnit.java" />
+        <option value="$PROJECT_DIR$/test/unit/VolumneMeasureTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/QuantityMeasureTest.java" />
+        <option value="$PROJECT_DIR$/main/measures/Unit.java" />
+        <option value="$PROJECT_DIR$/test/unit/UnitTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/DistanceMeasureTest.java" />
+        <option value="$PROJECT_DIR$/main/measures/ArtithmeticQuantity.java" />
+        <option value="$PROJECT_DIR$/main/measures/ArithmeticQuantity.java" />
+        <option value="$PROJECT_DIR$/main/measures/MultiplyableQuantity.java" />
+        <option value="$PROJECT_DIR$/main/measures/RatioQuantity.java" />
+        <option value="$PROJECT_DIR$/main/measures/IntervalQuantity.java" />
+        <option value="$PROJECT_DIR$/test/unit/TemperatureMeasureTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/TemperatureQuantityTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/VolumeMeasureTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/VolumeQuantityTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/AreaMesaureTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/AreaQuantityTest.java" />
+        <option value="$PROJECT_DIR$/test/unit/LenghtQuantityTest.java" />
+        <option value="$PROJECT_DIR$/main/measures/Length.java" />
+        <option value="$PROJECT_DIR$/main/measures/Temperature.java" />
+        <option value="$PROJECT_DIR$/main/measures/BaseUnit.java" />
+        <option value="$PROJECT_DIR$/main/measures/Area.java" />
+        <option value="$PROJECT_DIR$/main/measures/Volume.java" />
+        <option value="$PROJECT_DIR$/test/rectange/Square.java" />
+        <option value="$PROJECT_DIR$/test/rectangle/Square.java" />
+        <option value="$PROJECT_DIR$/main/rectangle/Square.java" />
         <option value="$PROJECT_DIR$/test/unit/RectangleTest.java" />
-        <option value="$PROJECT_DIR$/src/rectangle/Rectangle.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/main/rectangle/HasArea.java" />
+        <option value="$PROJECT_DIR$/test/unit/Finder.java" />
+        <option value="$PROJECT_DIR$/main/rectangle/Finder.java" />
+        <option value="$PROJECT_DIR$/main/finder/Finder.java" />
+        <option value="$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java" />
+        <option value="$PROJECT_DIR$/main/probability/Probability.java" />
+        <option value="$PROJECT_DIR$/main/rectangle/Rectangle.java" />
+        <option value="$PROJECT_DIR$/test/unit/SortingTest.java" />
+        <option value="$PROJECT_DIR$/main/finder/Comparable.java" />
+        <option value="$PROJECT_DIR$/main/measures/Quantity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="448" />
-    <option name="y" value="14" />
-    <option name="width" value="2744" />
-    <option name="height" value="1978" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -89,18 +186,41 @@
             <path>
               <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
               <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="measures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="probability" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="rectangle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
               <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="oo_boot_camp_2019-02-11_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oo_boot_camp_2019-02-11_java" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="unit" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -109,12 +229,40 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550064721524" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="AIDL" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/main" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="rectangle" />
+      <recent name="" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="finder" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="measures" />
+      <recent name="unit" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="unit" />
+      <recent name="rectangle" />
+      <recent name="rectange" />
+      <recent name="measures" />
+      <recent name="probability" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -128,10 +276,79 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="All in oo_boot_camp_2019-02-11_java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.unit in oo_boot_camp_2019-02-11_java">
+    <configuration name="SortingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oo_boot_camp_2019-02-11_java" />
-      <option name="PACKAGE_NAME" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortingTest.findExtremesOfRectangle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oo_boot_camp_2019-02-11_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findExtremesOfRectangle" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortingTest.findLargestQuantity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oo_boot_camp_2019-02-11_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findLargestQuantity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortingTest.findLargestRectangleByComparable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oo_boot_camp_2019-02-11_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
+      <option name="MAIN_CLASS_NAME" value="unit.SortingTest" />
+      <option name="METHOD_NAME" value="findLargestRectangleByComparable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="unit in oo_boot_camp_2019-02-11_java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oo_boot_camp_2019-02-11_java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unit" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,79 +356,630 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in oo_boot_camp_2019-02-11_java" />
+        <item itemvalue="JUnit.unit in oo_boot_camp_2019-02-11_java" />
+        <item itemvalue="JUnit.SortingTest.findExtremesOfRectangle" />
+        <item itemvalue="JUnit.SortingTest" />
+        <item itemvalue="JUnit.SortingTest.findLargestRectangleByComparable" />
+        <item itemvalue="JUnit.SortingTest.findLargestQuantity" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c6b7e5b-bd2a-4c7c-80ca-21a5bfd4d971" name="Default Changelist" comment="" />
+      <changelist id="801043dc-25fc-45f6-9793-8c74e10ac911" name="Not interested" comment="" />
+      <created>1549878007034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549878007034</updated>
+      <workItem from="1549878008468" duration="19453000" />
+      <workItem from="1549961360523" duration="22137000" />
+      <workItem from="1550044803712" duration="13611000" />
+    </task>
+    <task id="LOCAL-00001" summary="exercise 1">
+      <created>1549883777015</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1549883777015</updated>
+    </task>
+    <task id="LOCAL-00002" summary="probability exercise done">
+      <created>1549892598418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549892598418</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First solution to Measurement excercise">
+      <created>1549899257460</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1549899257460</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cleaned up measurement/unit exercise">
+      <created>1549901071887</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1549901071887</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cleaned up measurement/unit exercise">
+      <created>1549901136478</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1549901136478</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Improved measurement/unit exercise">
+      <created>1549962973287</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1549962973287</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed Unit from class to enum again in measurement/unit exercise">
+      <created>1549963358197</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1549963358197</updated>
+    </task>
+    <task id="LOCAL-00008" summary="More improvement">
+      <created>1549965956993</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1549965956993</updated>
+    </task>
+    <task id="LOCAL-00009" summary="unit/measure exercise final version">
+      <created>1549967175592</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1549967175592</updated>
+    </task>
+    <task id="LOCAL-00010" summary="distance/volume example with inheritance">
+      <created>1549971049270</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1549971049270</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added temperature support">
+      <created>1549979582122</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1549979582122</updated>
+    </task>
+    <task id="LOCAL-00012" summary="type safe quantities; multiplication">
+      <created>1549983592163</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1549983592163</updated>
+    </task>
+    <task id="LOCAL-00013" summary="supportsArithmetic flag on BaseUnit (ugly af)">
+      <created>1549985763786</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1549985763786</updated>
+    </task>
+    <task id="LOCAL-00014" summary="keeping user from adding/subtracting on Temperatures (nicer)">
+      <created>1549986178406</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1549986178406</updated>
+    </task>
+    <task id="LOCAL-00015" summary="cube inches to teaspon factor added">
+      <created>1549986422347</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1549986422347</updated>
+    </task>
+    <task id="LOCAL-00016" summary="no maths on temperatures, metric measures">
+      <created>1550052268456</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1550052268456</updated>
+    </task>
+    <task id="LOCAL-00017" summary="square">
+      <created>1550053918525</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1550053918525</updated>
+    </task>
+    <task id="LOCAL-00018" summary="meta information">
+      <created>1550054025484</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054025484</updated>
+    </task>
+    <task id="LOCAL-00019" summary="meta information">
+      <created>1550054056702</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054056702</updated>
+    </task>
+    <task id="LOCAL-00020" summary="meta information">
+      <created>1550054080972</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1550054080972</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Finding largest">
+      <created>1550061691373</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1550061691373</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
   <component name="TestHistory">
-    <history-entry file="All_in_oo_boot_camp_2019-02-11_java - 2019.02.11 at 08h 29m 59s.xml">
-      <configuration name="All in oo_boot_camp_2019-02-11_java" configurationId="JUnit" />
+    <history-entry file="SortingTest_nastyStuff - 2019.02.13 at 12h 15m 15s.xml">
+      <configuration name="SortingTest.nastyStuff" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_oo_boot_camp_2019-02-11_java - 2019.02.11 at 08h 32m 30s.xml">
-      <configuration name="All in oo_boot_camp_2019-02-11_java" configurationId="JUnit" />
+    <history-entry file="SortingTest - 2019.02.13 at 12h 15m 34s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest - 2019.02.13 at 12h 21m 01s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest - 2019.02.13 at 12h 25m 38s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest - 2019.02.13 at 12h 26m 51s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest_findLargestQuantity - 2019.02.13 at 12h 27m 31s.xml">
+      <configuration name="SortingTest.findLargestQuantity" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest_findLargestRectangleByComparable - 2019.02.13 at 12h 48m 32s.xml">
+      <configuration name="SortingTest.findLargestRectangleByComparable" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest - 2019.02.13 at 12h 48m 38s.xml">
+      <configuration name="SortingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest_findExtremesOfRectangle - 2019.02.13 at 13h 39m 52s.xml">
+      <configuration name="SortingTest.findExtremesOfRectangle" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SortingTest_findExtremesOfRectangle - 2019.02.13 at 13h 40m 00s.xml">
+      <configuration name="SortingTest.findExtremesOfRectangle" configurationId="JUnit" />
     </history-entry>
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="54702000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="224" y="7" width="1372" height="989" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25342464" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19674039" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Capture Tool" order="0" />
+      <window_info id="Learn" order="1" />
+      <window_info id="Image Layers" order="2" />
+      <window_info content_ui="combo" id="Project" order="3" weight="0.19349681" />
+      <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="SonarLint" order="0" />
+      <window_info anchor="bottom" id="Tail" order="1" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info active="true" anchor="bottom" id="Find" order="4" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.156013" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.1928494" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Capture Tool" order="0" />
+      <window_info id="Learn" order="1" />
+      <window_info id="Image Layers" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.19349681" />
+      <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="SonarLint" order="0" />
+      <window_info anchor="bottom" id="Tail" order="1" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.156013" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" visible="true" weight="0.1928494" />
+      <window_info anchor="right" id="Theme Preview" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="exercise 1" />
+    <MESSAGE value="probability exercise done" />
+    <MESSAGE value="First solution to Measurement excercise" />
+    <MESSAGE value="Cleaned up measurement/unit exercise" />
+    <MESSAGE value="Improved measurement/unit exercise" />
+    <MESSAGE value="Changed Unit from class to enum again in measurement/unit exercise" />
+    <MESSAGE value="More improvement" />
+    <MESSAGE value="unit/measure exercise final version" />
+    <MESSAGE value="distance/volume example with inheritance" />
+    <MESSAGE value="added temperature support" />
+    <MESSAGE value="type safe quantities; multiplication" />
+    <MESSAGE value="supportsArithmetic flag on BaseUnit (ugly af)" />
+    <MESSAGE value="keeping user from adding/subtracting on Temperatures (nicer)" />
+    <MESSAGE value="cube inches to teaspon factor added" />
+    <MESSAGE value="no maths on temperatures, metric measures" />
+    <MESSAGE value="square" />
+    <MESSAGE value="meta information" />
+    <MESSAGE value="Finding largest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finding largest" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/unit/LenghtQuantityTest.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>this.unit.convertedAmount(that.amount, that.unit)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.unit.isCompatible(that.unit)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/oo_boot_camp_2019-02-11_java.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/RectangleTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar!/org/junit/jupiter/api/Test.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="308">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar!/org/junit/jupiter/api/Assertions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="572" column="21" selection-start-line="572" selection-start-column="21" selection-end-line="572" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#18062#18063#0" expanded="true" />
+            <element signature="e#18115#18116#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rectangle/Rectangle.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.aidl" />
+    <entry file="file://$PROJECT_DIR$/test/unit/ProbabilityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="46" lean-forward="true" selection-start-line="32" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/DistanceMeasure.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/VolumeUnit.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/DistanceUnit.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/AreaUnit.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/VolumeMeasure.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/AreaMeasure.java" />
+    <entry file="file://$PROJECT_DIR$/main/measures/UnitType.java" />
+    <entry file="file://$PROJECT_DIR$/test/unit/UnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar!/org/junit/jupiter/api/AssertionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar!/org/junit/jupiter/api/AssertEquals.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="176" selection-start-line="176" selection-end-line="176" />
+          <folding>
+            <element signature="e#5064#5065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/IntervalQuantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding>
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#185#186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/IntervalQuantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding>
+            <element signature="e#161#162#0" expanded="true" />
+            <element signature="e#190#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/MultiplyableQuantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/VolumeQuantityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2448#2449#0" expanded="true" />
+            <element signature="e#2523#2524#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/AreaQuantityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/TemperatureQuantityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/LenghtQuantityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2358#2359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Temperature.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/BaseUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100">
+          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Length.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="31" column="61" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Volume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/rectangle/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/RectangleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../eaio-ng/jdk/openjdk8/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="528" column="31" selection-start-line="528" selection-start-column="21" selection-end-line="528" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/rectangle/HasArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="13" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/finder/FlexibleDoubleFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/probability/Probability.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
+            <element signature="e#2138#2139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/rectangle/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+          <folding>
+            <element signature="e#1144#1145#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/SortingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="65" column="19" lean-forward="true" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/finder/Comparable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="14" column="91" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="14" selection-end-column="91" />
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/measures/Quantity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="52" column="48" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
           <folding>
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -256,7 +1024,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>11</last-edited>
+          <last-edited>1.8 (openJdk)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -281,6 +1049,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>org.assertj:assertj-core:3.11.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
