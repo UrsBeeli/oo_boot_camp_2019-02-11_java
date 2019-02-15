@@ -1,21 +1,17 @@
 package graph;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
-import static graph.Path.FEWEST_HOPS;
-import static graph.Path.LEAST_COST;
+import static graph.ReachablePath.FEWEST_HOPS;
+import static graph.ReachablePath.LEAST_COST;
 
 public class Node {
-  private static final UnreachablePath UNREACHABLE = new UnreachablePath();
-  private final String label;
+  private static final Path UNREACHABLE = new InfinitePath();
+
   private Set<Link> links = new HashSet<>();
 
-  public Node(final String label) {
-    this.label = label;
+  public Node() {
   }
 
   public void addPathTo(final Node destination, double cost) {
@@ -34,34 +30,29 @@ public class Node {
     return path(destination, LEAST_COST).cost();
   }
 
-  private Set<Node> copyWithThis(Set<Node> list) {
-    Set<Node> result = new HashSet<>(list);
-    result.add(this);
-    return result;
-  }
-
   public Path path(final Node destination) {
     return path(destination, new HashSet<>(), LEAST_COST);
   }
 
-  private Path path(final Node destination, Path.WeightStrategy weightStrategy) {
+  private Path path(final Node destination, ReachablePath.WeightStrategy weightStrategy) {
     final Path path = path(destination, new HashSet<>(), weightStrategy);
     if (path == UNREACHABLE) throw new IllegalArgumentException("No path found");
     return path;
   }
 
-  Path path(final Node destination, Set<Node> visitedNodes, Path.WeightStrategy weightStrategy) {
-    if (destination == this) return new Path(weightStrategy);
+  Path path(final Node destination, Set<Node> visitedNodes, ReachablePath.WeightStrategy weightStrategy) {
+    if (destination == this) return new ReachablePath();
     if (visitedNodes.contains(this)) return UNREACHABLE;
 
     return links.stream()
                 .map(link -> link.path(destination, copyWithThis(visitedNodes), weightStrategy))
-                .min(Path::compareTo)
+                .min(weightStrategy::compareTo)
                 .orElse(UNREACHABLE);
   }
 
-  @Override
-  public String toString() {
-    return "Node ["+label+"]";
+  private Set<Node> copyWithThis(Set<Node> list) {
+    Set<Node> result = new HashSet<>(list);
+    result.add(this);
+    return result;
   }
 }

@@ -1,8 +1,6 @@
 package unit;
 
-import graph.Link;
 import graph.Node;
-import graph.Path;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GraphTest {
-  Node a = new Node("A");
-  Node b = new Node("B");
-  Node c = new Node("C");
-  Node d = new Node("D");
-  Node e = new Node("E");
-  Node f = new Node("F");
-  Node g = new Node("G");
+  Node a = new Node();
+  Node b = new Node();
+  Node c = new Node();
+  Node d = new Node();
+  Node e = new Node();
+  Node f = new Node();
+  Node g = new Node();
 
   {
     b.addPathTo(a, 5);
@@ -101,15 +99,9 @@ public class GraphTest {
     assertEquals(1, b.hopCount(f));
     assertEquals(3, d.hopCount(c));
 
-    // min hops
     assertEquals(2, c.hopCount(b));
     assertEquals(1, c.hopCount(e));
     assertEquals(3, c.hopCount(f));
-
-    // max hops
-    // assertEquals(3, c.hopCount(b));
-    // assertEquals(2, c.hopCount(e));
-
   }
 
   @Test

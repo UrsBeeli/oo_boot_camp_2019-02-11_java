@@ -1,37 +1,18 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Path {
-
+public abstract class Path {
   interface WeightStrategy {
-    double weight(Path path);
+    int compareTo(final Path p1, final Path p2);
   }
 
-  static final WeightStrategy LEAST_COST = path -> path.cost();
-  static final WeightStrategy FEWEST_HOPS = path -> path.hops();
+  static final WeightStrategy LEAST_COST = (p1, p2) -> Double.compare(p1.cost(), p2.cost());
+  static final WeightStrategy FEWEST_HOPS = (p1, p2) -> Integer.compare(p1.hops(), p2.hops());
 
-  private List<Link> links = new ArrayList<>();
-  private final WeightStrategy weightStrategy;
-
-  Path(WeightStrategy weightStrategy) {
-    this.weightStrategy = weightStrategy;
+  Path prepend(final Link link) {
+    return this;
   }
 
-  int compareTo(Path other) {
-    return Double.compare(weightStrategy.weight(this), weightStrategy.weight(other));
-  }
+  abstract int hops();
 
-  void prepend(final Link link) {
-    links.add(0, link);
-  }
-
-  int hops() {
-    return links.size();
-  }
-
-  double cost() {
-    return Link.totalPathLength(links);
-  }
+  abstract double cost();
 }
